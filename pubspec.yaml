@@ -1,6 +1,6 @@
 name: remote_database_setting
 description: "A new Flutter project."
-version: 0.0.1
+version: 1.0.0
 homepage:
 
 environment:
@@ -23,6 +23,7 @@ dependencies:
     git:
       url: https://github.com/YousenTech-Flutter/yousentech_pos_shared_widgets.git
       ref: master
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
