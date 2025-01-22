@@ -15,6 +15,7 @@ import 'package:shared_widgets/shared_widgets/app_snack_bar.dart';
 import 'package:shared_widgets/shared_widgets/app_text_field.dart';
 import 'package:shared_widgets/shared_widgets/card_login.dart';
 import 'package:shared_widgets/shared_widgets/custom_app_bar.dart';
+import 'package:yousentech_pos_token/yousentech_pos_token.dart';
 
 import '../domain/remote_database_setting_viewmodel.dart';
 
@@ -272,7 +273,7 @@ class _KeyScreenState extends State<KeyScreen> {
           );
           await SharedPr.removeUserObj();
           // TODO: tokenSCreen after build Token package
-          // Get.to(() => const TokenScreen());
+          Get.to(() => const TokenScreen());
         } else {
           if (value.data != null) {
             supportTicketDialog(
