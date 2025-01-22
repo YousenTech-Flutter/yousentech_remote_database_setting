@@ -125,7 +125,7 @@ class _KeyScreenState extends State<KeyScreen> {
                                         padding: EdgeInsets.all(8.0.r),
                                         child: SvgPicture.asset(
                                           'assets/image/lock_on.svg',
-                                          package: 'shared_widgets',
+                                          package: 'remote_database_setting',
                                           fit: BoxFit.scaleDown,
                                         ),
                                       ),
@@ -142,13 +142,15 @@ class _KeyScreenState extends State<KeyScreen> {
                                               ? SvgPicture.asset(
                                                   'assets/image/eye-open.svg',
                                                   fit: BoxFit.scaleDown,
-                                                  package: 'shared_widgets',
+                                                  package:
+                                                      'remote_database_setting',
                                                   color: AppColor.silverGray,
                                                 )
                                               : SvgPicture.asset(
                                                   'assets/image/eye-closed.svg',
                                                   fit: BoxFit.scaleDown,
-                                                  package: 'shared_widgets',
+                                                  package:
+                                                      'remote_database_setting',
                                                 ),
                                         ),
                                       ),
