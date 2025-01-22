@@ -142,16 +142,15 @@ class _KeyScreenState extends State<KeyScreen> {
                                           icon: flag
                                               ? SvgPicture.asset(
                                                   'assets/image/eye-open.svg',
+                                                  package: 'remote_database_setting',
                                                   fit: BoxFit.scaleDown,
-                                                  package:
-                                                      'remote_database_setting',
+                                                  
                                                   color: AppColor.silverGray,
                                                 )
                                               : SvgPicture.asset(
                                                   'assets/image/eye-closed.svg',
+                                                  package: 'remote_database_setting',
                                                   fit: BoxFit.scaleDown,
-                                                  package:
-                                                      'remote_database_setting',
                                                 ),
                                         ),
                                       ),
