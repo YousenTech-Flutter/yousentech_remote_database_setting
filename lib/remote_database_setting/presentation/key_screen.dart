@@ -78,6 +78,7 @@ class _KeyScreenState extends State<KeyScreen> {
                         ),
                       },
                       child: SizedBox(
+                        height: 600.h,
                         width: double.infinity,
                         child: Stack(
                           children: [
