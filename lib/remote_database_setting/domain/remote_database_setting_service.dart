@@ -20,10 +20,12 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
 
   static Future instantiateOdooConnection({url, db, username, password}) async {
     try {
-      
-      odooClient = OdooClient(url ?? hudaUrl);
+       odooClient = OdooClient(url ?? hudaUrl);
       odooSession = await odooClient.authenticate(
-          db ?? "mydb", username ?? "admin", password ?? "123456");
+          db ?? "demo", username ?? "demo", password ?? "demo");
+      // odooClient = OdooClient(url ?? hudaUrl);
+      // odooSession = await odooClient.authenticate(
+      //     db ?? "mydb", username ?? "admin", password ?? "123456");
 
       // odooClient = OdooClient(url ?? amalUrl2);
       // odooSession = await odooClient.authenticate(
