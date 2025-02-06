@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-
 import 'package:pos_shared_preferences/models/notification_helper_model.dart';
 import 'package:pos_shared_preferences/pos_shared_preferences.dart';
 import 'package:remote_database_setting/remote_database_setting/presentation/create_support_ticket.dart';
@@ -16,7 +15,6 @@ import 'package:shared_widgets/shared_widgets/app_text_field.dart';
 import 'package:shared_widgets/shared_widgets/card_login.dart';
 import 'package:shared_widgets/shared_widgets/custom_app_bar.dart';
 import 'package:yousentech_pos_token/yousentech_pos_token.dart';
-
 import '../domain/remote_database_setting_viewmodel.dart';
 
 class KeyScreen extends StatefulWidget {
