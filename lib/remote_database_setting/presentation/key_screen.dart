@@ -118,7 +118,7 @@ class _KeyScreenState extends State<KeyScreen> {
                                             labelText: 'key_number'.tr,
                                             showLable: true,
                                             width: ScreenUtil().screenWidth,
-                                            height: 0.1.sh,
+                                            height: 0.05.sh,
                                             controller: keyController,
                                             iconcolor: AppColor.silverGray,
                                             focusNode: keyFocusNode,
@@ -192,7 +192,7 @@ class _KeyScreenState extends State<KeyScreen> {
                                         return InkWell(
                                           onTap: _onPressed,
                                           child: Container(
-                                            height: 0.1.sh,
+                                            height: 0.05.sh,
                                             width: ScreenUtil().screenWidth,
                                             alignment: Alignment.center,
                                             margin: const EdgeInsets.symmetric(
@@ -224,13 +224,13 @@ class _KeyScreenState extends State<KeyScreen> {
                                   //   }
                                   // }),
                                   if (widget.changeConnectionInfo) ...[
-                                    SizedBox(width: 20.w),
+                                    SizedBox(height: 10.r),
                                     InkWell(
                                       onTap: () async {
                                         Get.back();
                                       },
                                       child: Container(
-                                        height: 0.1.sh,
+                                        height: 0.05.sh,
                                         width: ScreenUtil().screenWidth,
                                         alignment: Alignment.center,
                                         margin: const EdgeInsets.symmetric(
