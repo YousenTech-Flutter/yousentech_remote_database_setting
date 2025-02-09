@@ -118,7 +118,7 @@ class _KeyScreenState extends State<KeyScreen> {
                                             labelText: 'key_number'.tr,
                                             showLable: true,
                                             width: ScreenUtil().screenWidth,
-                                            height: 30.h,
+                                            height: 0.1.sh,
                                             controller: keyController,
                                             iconcolor: AppColor.silverGray,
                                             focusNode: keyFocusNode,
@@ -192,7 +192,7 @@ class _KeyScreenState extends State<KeyScreen> {
                                         return InkWell(
                                           onTap: _onPressed,
                                           child: Container(
-                                            height: 30.h,
+                                            height: 0.1.sh,
                                             width: ScreenUtil().screenWidth,
                                             alignment: Alignment.center,
                                             margin: const EdgeInsets.symmetric(
@@ -230,7 +230,7 @@ class _KeyScreenState extends State<KeyScreen> {
                                         Get.back();
                                       },
                                       child: Container(
-                                        height: 30.h,
+                                        height: 0.1.sh,
                                         width: ScreenUtil().screenWidth,
                                         alignment: Alignment.center,
                                         margin: const EdgeInsets.symmetric(
