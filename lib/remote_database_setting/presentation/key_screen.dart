@@ -224,7 +224,7 @@ class _KeyScreenState extends State<KeyScreen> {
                                   //   }
                                   // }),
                                   if (widget.changeConnectionInfo) ...[
-                                    SizedBox(height: 10.r),
+                                    SizedBox(height: 0.02.sh),
                                     InkWell(
                                       onTap: () async {
                                         Get.back();
