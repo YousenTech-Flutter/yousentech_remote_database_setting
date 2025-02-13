@@ -119,15 +119,10 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
   // ========================================== [ Check Connection ] =============================================
 
   // ========================================== [ Send Ticket ] =============================================
-  @override
-  Future sendTicket(
-      {required String subscriptionId,
-      required String message,
-      bool sendToMyCompany = true}) async {
+    @override
+  Future sendTicket({required String subscriptionId,required String message,bool sendToMyCompany = true}) async {
     try {
       dynamic result;
-      OdooClient client = odooClient;
-      OdooSession? session = odooSession;
       // to amal serve local
       result = await odooClient.callKw({
         'model': OdooModels.serverSubscriptionSupportTicket,
@@ -143,22 +138,9 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
         'kwargs': {},
       });
 
-      // if (sendToMyCompany) {
-
       // to qimamhd server
       if (OdooProjectOwnerConnectionHelper.odooSession != null) {
-        client = OdooProjectOwnerConnectionHelper.odooClient;
-        session = OdooProjectOwnerConnectionHelper.odooSession;
-      } else {
-        await instantiateOdooConnection(
-            url: SharedPr.subscriptionDetailsObj!.url,
-            db: SharedPr.subscriptionDetailsObj!.db,
-            username: supportAccountUsername,
-            password: supportAccountPassword);
-        client = odooClient;
-        session = odooSession;
-      }
-      result = await client.callKw({
+        result = await OdooProjectOwnerConnectionHelper.odooClient.callKw({
         'model': OdooModels.posSupportTicket,
         'method': 'create',
         'args': [
@@ -166,11 +148,14 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
                   subscriptionDetailId: null,
                   exceptionDetails: message,
                   posId: SharedPr.currentPosObject?.id,
-                  userId: SharedPr.chosenUserObj?.id ?? session?.userId)
+                  userId: SharedPr.chosenUserObj?.id
+                  )
               .toJson()
         ],
         'kwargs': {},
       });
+      } 
+      
       await instantiateOdooConnection();
       return result is int ? true : false;
     } catch (e) {
@@ -178,6 +163,63 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
           exception: e, navigation: false, methodName: "sendTicket");
     }
   }
+  // @override
+  // Future sendTicket({required String subscriptionId,required String message,bool sendToMyCompany = true}) async {
+  //   try {
+  //     dynamic result;
+  //     OdooClient client = odooClient;
+  //     OdooSession? session = odooSession;
+  //     // to amal serve local
+  //     result = await odooClient.callKw({
+  //       'model': OdooModels.serverSubscriptionSupportTicket,
+  //       'method': 'create',
+  //       'args': [
+  //         RemoteSupportTicket(
+  //                 subscriptionDetailId: SharedPr.subscriptionDetailsObj!.id!,
+  //                 exceptionDetails: message,
+  //                 posId: null,
+  //                 userId: null)
+  //             .toJson()
+  //       ],
+  //       'kwargs': {},
+  //     });
+
+  //     // if (sendToMyCompany) {
+
+  //     // to qimamhd server
+  //     if (OdooProjectOwnerConnectionHelper.odooSession != null) {
+  //       client = OdooProjectOwnerConnectionHelper.odooClient;
+  //       session = OdooProjectOwnerConnectionHelper.odooSession;
+  //     } else {
+  //       await instantiateOdooConnection(
+  //           url: SharedPr.subscriptionDetailsObj!.url,
+  //           db: SharedPr.subscriptionDetailsObj!.db,
+  //           username: supportAccountUsername,
+  //           password: supportAccountPassword);
+  //       client = odooClient;
+  //       session = odooSession;
+  //     }
+  //     result = await client.callKw({
+  //       'model': OdooModels.posSupportTicket,
+  //       'method': 'create',
+  //       'args': [
+  //         RemoteSupportTicket(
+  //                 subscriptionDetailId: null,
+  //                 exceptionDetails: message,
+  //                 posId: SharedPr.currentPosObject?.id,
+  //                 userId: SharedPr.chosenUserObj?.id ?? session?.userId)
+  //             .toJson()
+  //       ],
+  //       'kwargs': {},
+  //     });
+  //     await instantiateOdooConnection();
+  //     return result is int ? true : false;
+  //   } catch (e) {
+  //     return handleException(
+  //         exception: e, navigation: false, methodName: "sendTicket");
+  //   }
+  // }
+
 
   // ========================================== [ Send Ticket ] =============================================
 
