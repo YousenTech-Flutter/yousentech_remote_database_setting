@@ -12,7 +12,8 @@ dependencies:
     sdk: flutter
   get: ^4.6.6
   http: ^1.2.1
-  odoo_rpc: ^0.5.4
+  # odoo_rpc: ^0.5.4
+  odoo_rpc: ^0.5.8
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.10+1
   pos_shared_preferences:
