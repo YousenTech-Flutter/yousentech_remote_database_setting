@@ -90,6 +90,7 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
       }
       return result;
     } catch (e) {
+      print(e);
       return handleException(
           exception: e, navigation: false, methodName: "checkKeyLogin");
       // return e.toString().replaceFirst('Exception: ', '');
