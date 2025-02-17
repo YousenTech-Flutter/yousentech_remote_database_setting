@@ -278,6 +278,9 @@ class _KeyScreenState extends State<KeyScreen> {
         keyController.text,
       )
           .then((value) async {
+        print("value.status ${value.status}");
+        print("value.message ${value.message}");
+
         if (value.status) {
           appSnackBar(
             messageType: MessageTypes.success,
