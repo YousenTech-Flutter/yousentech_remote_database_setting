@@ -66,7 +66,6 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
     required String loginKey,
   }) async {
     try {
-      print("odoo clint ${odooClient}");
       dynamic result = await odooClient.callKw({
         'model': OdooModels.subscriptionDetails,
         'method': 'search_read',
@@ -77,7 +76,6 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
           ],
         },
       });
-      print(result);
       // print(result);
       if (result is List && result.isEmpty) {
         return 'key_not_found'.tr;
@@ -90,7 +88,6 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
       }
       return result;
     } catch (e) {
-      print(e);
       return handleException(
           exception: e, navigation: false, methodName: "checkKeyLogin");
       // return e.toString().replaceFirst('Exception: ', '');

@@ -224,7 +224,7 @@ class _KeyScreenState extends State<KeyScreen> {
                                   //   }
                                   // }),
                                   if (widget.changeConnectionInfo) ...[
-                                    SizedBox(height: 0.02.sh),
+                                    SizedBox(height: 10.r),
                                     InkWell(
                                       onTap: () async {
                                         Get.back();
@@ -278,9 +278,6 @@ class _KeyScreenState extends State<KeyScreen> {
         keyController.text,
       )
           .then((value) async {
-        print("value.status ${value.status}");
-        print("value.message ${value.message}");
-
         if (value.status) {
           appSnackBar(
             messageType: MessageTypes.success,
