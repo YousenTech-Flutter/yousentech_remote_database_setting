@@ -77,7 +77,7 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
           ],
         },
       });
-      // print(result);
+      print(result);
       // print(result);
       if (result is List && result.isEmpty) {
         return 'key_not_found'.tr;
@@ -119,8 +119,11 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
   // ========================================== [ Check Connection ] =============================================
 
   // ========================================== [ Send Ticket ] =============================================
-    @override
-  Future sendTicket({required String subscriptionId,required String message,bool sendToMyCompany = true}) async {
+  @override
+  Future sendTicket(
+      {required String subscriptionId,
+      required String message,
+      bool sendToMyCompany = true}) async {
     try {
       dynamic result;
       // to amal serve local
@@ -141,21 +144,20 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
       // to qimamhd server
       if (OdooProjectOwnerConnectionHelper.odooSession != null) {
         result = await OdooProjectOwnerConnectionHelper.odooClient.callKw({
-        'model': OdooModels.posSupportTicket,
-        'method': 'create',
-        'args': [
-          RemoteSupportTicket(
-                  subscriptionDetailId: null,
-                  exceptionDetails: message,
-                  posId: SharedPr.currentPosObject?.id,
-                  userId: SharedPr.chosenUserObj?.id
-                  )
-              .toJson()
-        ],
-        'kwargs': {},
-      });
-      } 
-      
+          'model': OdooModels.posSupportTicket,
+          'method': 'create',
+          'args': [
+            RemoteSupportTicket(
+                    subscriptionDetailId: null,
+                    exceptionDetails: message,
+                    posId: SharedPr.currentPosObject?.id,
+                    userId: SharedPr.chosenUserObj?.id)
+                .toJson()
+          ],
+          'kwargs': {},
+        });
+      }
+
       await instantiateOdooConnection();
       return result is int ? true : false;
     } catch (e) {
@@ -219,7 +221,6 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
   //         exception: e, navigation: false, methodName: "sendTicket");
   //   }
   // }
-
 
   // ========================================== [ Send Ticket ] =============================================
 
