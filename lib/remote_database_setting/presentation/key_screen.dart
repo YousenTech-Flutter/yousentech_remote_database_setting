@@ -195,9 +195,8 @@ class _KeyScreenState extends State<KeyScreen> {
                                             height: 0.05.sh,
                                             width: ScreenUtil().screenWidth,
                                             alignment: Alignment.center,
-                                            margin: const EdgeInsets.symmetric(
-                                                    vertical: 5)
-                                                .r,
+                                            margin: EdgeInsets.symmetric(
+                                                vertical: 5.r),
                                             decoration: BoxDecoration(
                                               boxShadow: [
                                                 BoxShadow(
@@ -233,9 +232,8 @@ class _KeyScreenState extends State<KeyScreen> {
                                         height: 0.05.sh,
                                         width: ScreenUtil().screenWidth,
                                         alignment: Alignment.center,
-                                        margin: const EdgeInsets.symmetric(
-                                                vertical: 5)
-                                            .r,
+                                        margin:
+                                            EdgeInsets.symmetric(vertical: 5.r),
                                         decoration: BoxDecoration(
                                             border: Border.all(
                                               color: AppColor.paleAqua,
