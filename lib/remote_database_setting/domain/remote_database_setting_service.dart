@@ -20,9 +20,9 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
 
   static Future instantiateOdooConnection({url, db, username, password}) async {
     try {
-      odooClient = OdooClient(url ?? hudaUrl);
-      odooSession = await odooClient.authenticate(
-          db ?? "demo", username ?? "demo", password ?? "demo");
+      // odooClient = OdooClient(url ?? hudaUrl);
+      // odooSession = await odooClient.authenticate(
+      //     db ?? "demo", username ?? "demo", password ?? "demo");
       // odooClient = OdooClient(url ?? hudaUrl);
       // odooSession = await odooClient.authenticate(
       //     db ?? "mydb", username ?? "admin", password ?? "123456");
@@ -35,9 +35,9 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
       // odooSession = await odooClient.authenticate(
       //     db ?? sanaaDB, username ?? sanaaAccountUserName, password ?? sanaaAccountPassword);
 
-      // odooClient = OdooClient(url ?? remoteURL);
-      // odooSession = await odooClient.authenticate(db ?? remotedB,
-      //     username ?? remoteUsername, password ?? remotePassword);
+      odooClient = OdooClient(url ?? remoteURL);
+      odooSession = await odooClient.authenticate(db ?? remotedB,
+          username ?? remoteUsername, password ?? remotePassword);
 
       await SharedPr.setSessionId(
           sessionId: "session_id=${odooSession.id}"); // output OdooSession
