@@ -1,3 +1,4 @@
+
 import 'package:pos_shared_preferences/models/subscription_info.dart';
 
 abstract class RemoteDatabaseSettingRepository {
@@ -7,3 +8,5 @@ abstract class RemoteDatabaseSettingRepository {
   Future<dynamic> getSupportTicket();
   Future<dynamic> updateStautSupportTicket({required int supportTicketId});
 }
+
+

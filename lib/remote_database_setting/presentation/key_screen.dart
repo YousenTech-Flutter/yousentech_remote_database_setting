@@ -7,7 +7,7 @@ import 'package:pos_shared_preferences/models/notification_helper_model.dart';
 import 'package:pos_shared_preferences/pos_shared_preferences.dart';
 import 'package:remote_database_setting/remote_database_setting/presentation/create_support_ticket.dart';
 import 'package:shared_widgets/config/app_colors.dart';
-import 'package:shared_widgets/config/app_enum.dart';
+import 'package:shared_widgets/config/app_enums.dart';
 import 'package:shared_widgets/shared_widgets/app_close_dialog.dart';
 import 'package:shared_widgets/shared_widgets/app_loading.dart';
 import 'package:shared_widgets/shared_widgets/app_snack_bar.dart';

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:pos_shared_preferences/models/notification_helper_model.dart';
 import 'package:pos_shared_preferences/pos_shared_preferences.dart';
 import 'package:shared_widgets/config/app_colors.dart';
-import 'package:shared_widgets/config/app_enum.dart';
+import 'package:shared_widgets/config/app_enums.dart';
 import 'package:shared_widgets/config/app_styles.dart';
 import 'package:shared_widgets/shared_widgets.dart';
 import 'package:shared_widgets/shared_widgets/app_loading.dart';
