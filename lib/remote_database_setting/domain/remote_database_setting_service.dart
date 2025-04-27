@@ -32,9 +32,9 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
       // odooSession = await odooClient.authenticate(
       //     db ?? sanaaDB, username ?? sanaaAccountUserName, password ?? sanaaAccountPassword);
 
-      // odooClient = OdooClient(url ?? remoteURL);
-      // odooSession = await odooClient.authenticate(db ?? remotedB,
-      //     username ?? remoteUsername, password ?? remotePassword);
+      odooClient = OdooClient(url ?? remoteURL);
+      odooSession = await odooClient.authenticate(db ?? remotedB,
+          username ?? remoteUsername, password ?? remotePassword);
 
       await SharedPr.setSessionId(
           sessionId: "session_id=${odooSession.id}"); // output OdooSession
@@ -107,6 +107,11 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
   // ========================================== [ Check Connection ] =============================================
 
   // ========================================== [ Send Ticket ] =============================================
+  @override
+  Future sendTicket(
+      {required String subscriptionId,
+      required String message,
+      bool sendToMyCompany = true}) async {
   @override
   Future sendTicket(
       {required String subscriptionId,
