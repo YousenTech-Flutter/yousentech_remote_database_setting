@@ -112,11 +112,6 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
       {required String subscriptionId,
       required String message,
       bool sendToMyCompany = true}) async {
-  @override
-  Future sendTicket(
-      {required String subscriptionId,
-      required String message,
-      bool sendToMyCompany = true}) async {
     try {
       dynamic result;
       OdooClient client = odooClient;
@@ -292,4 +287,5 @@ class RemoteDatabaseSettingService implements RemoteDatabaseSettingRepository {
     }
   }
 // ========================================== [ get Support Ticket ] =============================================
-}
+
+      }
