@@ -133,7 +133,7 @@ supportTicketDialog({
                               return null;
                             },
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
