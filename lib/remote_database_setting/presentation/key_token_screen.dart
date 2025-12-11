@@ -231,185 +231,171 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
                                               ),
                                             ),
                                             Center(
-                                              child: Builder(
-                                                builder: (context) {
-                                                  return SizeProvider(
-                                                    baseSize: Size(
-                                                      // context.setWidth(357.33),
-                                                      context.screenWidth,
-                                                      context.setHeight(51.28),
-                                                    ),
-                                                    width: context.screenWidth,
+                                              child:  ContainerTextField(
+                                                    focusNode: fieldFocusNode,
+                                                    controller:
+                                                        textEditingController,
+                                                    labelText:
+                                                        widget.isKeyScreen
+                                                            ? 'key_number'.tr
+                                                            : 'token_number'
+                                                                .tr,
+                                                    keyboardType:
+                                                        TextInputType.number,
+                                                    inputFormatters: [
+                                                      FilteringTextInputFormatter.allow(
+                                                        RegExp(r'[0-9.]'),
+                                                      ),
+                                                    ],
+                                                    width:
+                                                        context.screenWidth,
                                                     height: context.setHeight(
                                                       51.28,
                                                     ),
-                                                    child: ContainerTextField(
-                                                      focusNode: fieldFocusNode,
-                                                      controller:
-                                                          textEditingController,
-                                                      labelText:
-                                                          widget.isKeyScreen
-                                                              ? 'key_number'.tr
-                                                              : 'token_number'
-                                                                  .tr,
-                                                      keyboardType:
-                                                          TextInputType.number,
-                                                      inputFormatters: [
-                                                        FilteringTextInputFormatter.allow(
-                                                          RegExp(r'[0-9.]'),
-                                                        ),
-                                                      ],
-                                                      width:
-                                                          context.screenWidth,
-                                                      height: context.setHeight(
-                                                        51.28,
-                                                      ),
-                                                      fontSize: context.setSp(
-                                                        14,
-                                                      ),
-                                                      testFontSize:context.setSp(
-                                                        19,
-                                                      ) ,
-                                                      contentPadding:
-                                                          EdgeInsets.fromLTRB(
-                                                            context.setWidth(
-                                                              14.82,
-                                                            ),
-                                                            context.setHeight(
-                                                              15.22,
-                                                            ),
-                                                            context.setWidth(
-                                                              14.82,
-                                                            ),
-                                                            context.setHeight(
-                                                              15.22,
-                                                            ),
-                                                          ),
-                                                      showLable: false,
-                                                      iconcolor: const Color(
-                                                        0xFF16A6B7,
-                                                      ),
-                                                      borderColor:
-                                                          !SharedPr.isDarkMode!
-                                                              ?const Color(
-                                                                0xFFC2C3CB,
-                                                              )
-                                                              : null,
-                                                      fillColor:
-                                                          !SharedPr.isDarkMode!
-                                                              ? Colors.white
-                                                                  .withValues(
-                                                                    alpha: 0.43,
-                                                                  )
-                                                              : const Color(
-                                                                0xFF2B2B2B,
-                                                              ),
-                                                      hintcolor:
-                                                          !SharedPr.isDarkMode!
-                                                              ? const Color(
-                                                                0xFFC2C3CB,
-                                                              )
-                                                              : const Color(
-                                                                0xFFC2C3CB,
-                                                              ),
-                                                      color:
-                                                          !SharedPr.isDarkMode!
-                                                              ? const Color(
-                                                                0xFFC2C3CB,
-                                                              )
-                                                              : const Color(
-                                                                0xFFC2C3CB,
-                                                              ),
-                                                      isAddOrEdit: true,
-                                                      borderRadius: context
-                                                          .setMinSize(8.01),
-                                                      hintText:
-                                                          widget.isKeyScreen
-                                                              ? 'key_number'.tr
-                                                              : 'token_number'
-                                                                  .tr,
-                                                      prefixIcon: Padding(
-                                                        padding:
-                                                            EdgeInsets.symmetric(
-                                                              horizontal:
-                                                                  context
-                                                                      .setWidth(
-                                                                        14,
-                                                                      ),
-                                                            ),
-                                                        child: SvgPicture.asset(
-                                                          AppImages.lockOn,
-                                                          package: 'shared_widgets',
-                                                          color: const Color(
-                                                            0xFF16A6B7,
-                                                          ),
-                                                          width: context
-                                                              .setWidth(21.63),
-                                                          height: context
-                                                              .setHeight(21.63),
-                                                        ),
-                                                      ),
-                                                      suffixIcon: IconButton(
-                                                        onPressed: () {
-                                                          setState(() {
-                                                            flag = !flag;
-                                                          });
-                                                        },
-                                                        icon:
-                                                            flag
-                                                                ? SvgPicture.asset(
-                                                                  AppImages.eyeOpen,
-                                                                  package: 'shared_widgets',
-                                                                  width: context
-                                                                      .setWidth(
-                                                                        21.63,
-                                                                      ),
-                                                                  height: context
-                                                                      .setHeight(
-                                                                        21.63,
-                                                                      ),
-                                                                  color: const Color(
-                                                                    0xFF16A6B7,
-                                                                  ),
-                                                                )
-                                                                : SvgPicture.asset(
-                                                                  AppImages.eyeClosed,
-                                                                  package: 'shared_widgets',
-                                                                  width: context
-                                                                      .setWidth(
-                                                                        21.63,
-                                                                      ),
-                                                                  height: context
-                                                                      .setHeight(
-                                                                        21.63,
-                                                                      ),
-                                                                  color: const Color(
-                                                                    0xFF16A6B7,
-                                                                  ),
-                                                                ),
-                                                      ),
-                                                      obscureText:
-                                                          flag ? false : true,
-                                                      validator: (value) {
-                                                        if (value == null ||
-                                                            value.isEmpty) {
-                                                          errorMessage =
-                                                              widget.isKeyScreen
-                                                                  ? 'key_number_message'
-                                                                      .tr
-                                                                  : 'required_message'.trParams({
-                                                                    'field_name':
-                                                                        'token_number'
-                                                                            .tr,
-                                                                  });
-                                                          return "";
-                                                        }
-                                                        return null;
-                                                      },
+                                                    fontSize: context.setSp(
+                                                      14,
                                                     ),
-                                                  );
-                                                },
-                                              ),
+                                                    testFontSize:context.setSp(
+                                                      19,
+                                                    ) ,
+                                                    contentPadding:
+                                                        EdgeInsets.fromLTRB(
+                                                          context.setWidth(
+                                                            14.82,
+                                                          ),
+                                                          context.setHeight(
+                                                            15.22,
+                                                          ),
+                                                          context.setWidth(
+                                                            14.82,
+                                                          ),
+                                                          context.setHeight(
+                                                            15.22,
+                                                          ),
+                                                        ),
+                                                    showLable: false,
+                                                    iconcolor: const Color(
+                                                      0xFF16A6B7,
+                                                    ),
+                                                    borderColor:
+                                                        !SharedPr.isDarkMode!
+                                                            ?const Color(
+                                                              0xFFC2C3CB,
+                                                            )
+                                                            : null,
+                                                    fillColor:
+                                                        !SharedPr.isDarkMode!
+                                                            ? Colors.white
+                                                                .withValues(
+                                                                  alpha: 0.43,
+                                                                )
+                                                            : const Color(
+                                                              0xFF2B2B2B,
+                                                            ),
+                                                    hintcolor:
+                                                        !SharedPr.isDarkMode!
+                                                            ? const Color(
+                                                              0xFFC2C3CB,
+                                                            )
+                                                            : const Color(
+                                                              0xFFC2C3CB,
+                                                            ),
+                                                    color:
+                                                        !SharedPr.isDarkMode!
+                                                            ? const Color(
+                                                              0xFFC2C3CB,
+                                                            )
+                                                            : const Color(
+                                                              0xFFC2C3CB,
+                                                            ),
+                                                    isAddOrEdit: true,
+                                                    borderRadius: context
+                                                        .setMinSize(8.01),
+                                                    hintText:
+                                                        widget.isKeyScreen
+                                                            ? 'key_number'.tr
+                                                            : 'token_number'
+                                                                .tr,
+                                                    prefixIcon: Padding(
+                                                      padding:
+                                                          EdgeInsets.symmetric(
+                                                            horizontal:
+                                                                context
+                                                                    .setWidth(
+                                                                      14,
+                                                                    ),
+                                                          ),
+                                                      child: SvgPicture.asset(
+                                                        AppImages.lockOn,
+                                                        package: 'shared_widgets',
+                                                        color: const Color(
+                                                          0xFF16A6B7,
+                                                        ),
+                                                        width: context
+                                                            .setWidth(21.63),
+                                                        height: context
+                                                            .setHeight(21.63),
+                                                      ),
+                                                    ),
+                                                    suffixIcon: IconButton(
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          flag = !flag;
+                                                        });
+                                                      },
+                                                      icon:
+                                                          flag
+                                                              ? SvgPicture.asset(
+                                                                AppImages.eyeOpen,
+                                                                package: 'shared_widgets',
+                                                                width: context
+                                                                    .setWidth(
+                                                                      21.63,
+                                                                    ),
+                                                                height: context
+                                                                    .setHeight(
+                                                                      21.63,
+                                                                    ),
+                                                                color: const Color(
+                                                                  0xFF16A6B7,
+                                                                ),
+                                                              )
+                                                              : SvgPicture.asset(
+                                                                AppImages.eyeClosed,
+                                                                package: 'shared_widgets',
+                                                                width: context
+                                                                    .setWidth(
+                                                                      21.63,
+                                                                    ),
+                                                                height: context
+                                                                    .setHeight(
+                                                                      21.63,
+                                                                    ),
+                                                                color: const Color(
+                                                                  0xFF16A6B7,
+                                                                ),
+                                                              ),
+                                                    ),
+                                                    obscureText:
+                                                        flag ? false : true,
+                                                    validator: (value) {
+                                                      if (value == null ||
+                                                          value.isEmpty) {
+                                                        errorMessage =
+                                                            widget.isKeyScreen
+                                                                ? 'key_number_message'
+                                                                    .tr
+                                                                : 'required_message'.trParams({
+                                                                  'field_name':
+                                                                      'token_number'
+                                                                          .tr,
+                                                                });
+                                                        return "";
+                                                      }
+                                                      return null;
+                                                    },
+                                                  )
+                                                
                                             ),
 
                                             SizedBox(
@@ -419,9 +405,7 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
                                             Center(
                                               child: Focus(
                                                 autofocus: true,
-                                                child: Builder(
-                                                  builder: (context) {
-                                                    return Row(
+                                                child:  Row(
                                                       spacing: context.setWidth(
                                                         16,
                                                       ),
@@ -569,9 +553,7 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
                                                           ),
                                                         ],
                                                       ],
-                                                    );
-                                                  },
-                                                ),
+                                                    )
                                               ),
                                             ),
                                           ],
