@@ -13,6 +13,7 @@ import 'package:shared_widgets/config/app_colors.dart';
 import 'package:shared_widgets/config/app_enums.dart';
 import 'package:shared_widgets/config/app_images.dart';
 import 'package:shared_widgets/config/app_styles.dart';
+import 'package:shared_widgets/config/theme_controller.dart';
 import 'package:shared_widgets/shared_widgets/app_button.dart';
 import 'package:shared_widgets/shared_widgets/app_close_dialog.dart';
 import 'package:shared_widgets/shared_widgets/app_dialog.dart';
@@ -81,7 +82,7 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
               },
             ),
             backgroundColor:
-                !SharedPr.isDarkMode!
+                !Get.find<ThemeController>().isDarkMode.value
                     ?AppColor. lightModeBackgroundColor
                     : AppColor.darkModeBackgroundColor,
             body: Shortcuts(
@@ -125,18 +126,18 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
                                     height: context.setHeight(470),
                                     decoration: ShapeDecoration(
                                       color:
-                                          !SharedPr.isDarkMode!
-                                              ? Colors.white
-                                              // Colors.white.withValues(
+                                          !Get.find<ThemeController>().isDarkMode.value
+                                              ? AppColor.white
+                                              // AppColor.white.withValues(
                                               //   alpha: 0.50,
                                               // )
-                                              : Colors.white.withValues(
+                                              : AppColor.white.withValues(
                                                 alpha: 0.01,
                                               ),
                                       shape: RoundedRectangleBorder(
                                         side: BorderSide(
                                           width: 1,
-                                          color: Colors.white.withValues(
+                                          color: AppColor.white.withValues(
                                             alpha: 0.50,
                                           ),
                                         ),
@@ -167,11 +168,9 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   color:
-                                                      !SharedPr.isDarkMode!
-                                                          ? const Color(
-                                                            0xFF2E2E2E,
-                                                          )
-                                                          : Colors.white,
+                                                      !Get.find<ThemeController>().isDarkMode.value
+                                                          ? AppColor.black
+                                                          : AppColor.white,
                                                   fontSize: context.setSp(
                                                     20.03,
                                                   ),
@@ -192,7 +191,7 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
                                                         .tr,
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
-                                                  color:SharedPr.isDarkMode! ? Color(0xFFB1B3BC) : const Color(
+                                                  color:Get.find<ThemeController>().isDarkMode.value ? Color(0xFFB1B3BC) : const Color(
                                                     0xFF9F9FA5,
                                                   ),
                                                   fontSize: context.setSp(
@@ -219,7 +218,7 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
                                                 textAlign: TextAlign.right,
                                                 style: TextStyle(
                                                   color:
-                                                      !SharedPr.isDarkMode!
+                                                      !Get.find<ThemeController>().isDarkMode.value
                                                           ? Color(0xFF585858)
                                                           :Color(0xFFB1B3BC),
                                                   fontSize: context.setSp(
@@ -278,14 +277,14 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
                                                       0xFF16A6B7,
                                                     ),
                                                     borderColor:
-                                                        !SharedPr.isDarkMode!
+                                                        !Get.find<ThemeController>().isDarkMode.value
                                                             ?const Color(
                                                               0xFFC2C3CB,
                                                             )
                                                             : null,
                                                     fillColor:
-                                                        !SharedPr.isDarkMode!
-                                                            ? Colors.white
+                                                        !Get.find<ThemeController>().isDarkMode.value
+                                                            ? AppColor.white
                                                                 .withValues(
                                                                   alpha: 0.43,
                                                                 )
@@ -293,7 +292,7 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
                                                               0xFF2B2B2B,
                                                             ),
                                                     hintcolor:
-                                                        !SharedPr.isDarkMode!
+                                                        !Get.find<ThemeController>().isDarkMode.value
                                                             ? const Color(
                                                               0xFFC2C3CB,
                                                             )
@@ -301,7 +300,7 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
                                                               0xFFC2C3CB,
                                                             ),
                                                     color:
-                                                        !SharedPr.isDarkMode!
+                                                        !Get.find<ThemeController>().isDarkMode.value
                                                             ? const Color(
                                                               0xFFC2C3CB,
                                                             )
@@ -504,8 +503,8 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
                                                                     side: BorderSide(
                                                                       width: 1,
                                                                       color:
-                                                                          SharedPr.isDarkMode!
-                                                                              ? Colors.white.withValues(
+                                                                          Get.find<ThemeController>().isDarkMode.value
+                                                                              ? AppColor.white.withValues(
                                                                                 alpha:
                                                                                     0.50,
                                                                               )
@@ -533,7 +532,7 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
                                                                             14.42,
                                                                           ),
                                                                       color:
-                                                                          !SharedPr.isDarkMode!
+                                                                          !Get.find<ThemeController>().isDarkMode.value
                                                                               ? Color(
                                                                                 0xFFC2C3CB,
                                                                               )
@@ -678,9 +677,9 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color:
-                                        SharedPr.isDarkMode!
-                                            ? Colors.white
-                                            : const Color(0xFF2E2E2E),
+                                        Get.find<ThemeController>().isDarkMode.value
+                                            ? AppColor.white
+                                            : AppColor.black,
                                     fontSize: context.setSp(20.03),
                                     fontFamily: 'Tajawal',
                                     fontWeight: FontWeight.w700,
@@ -697,7 +696,7 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
                                   'change_device_id_message'.tr,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    color:SharedPr.isDarkMode! ? const Color(0xFFB1B3BC):  const Color(0xFF9F9FA5),
+                                    color:Get.find<ThemeController>().isDarkMode.value ? const Color(0xFFB1B3BC):  const Color(0xFF9F9FA5),
                                     fontSize: context.setSp(14.42),
                                     fontFamily: 'Tajawal',
                                     fontWeight: FontWeight.w400,
@@ -715,7 +714,7 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
                                       borderRadius: context.setMinSize(9),
                                       backgroundColor: AppColor.cyanTeal,
                                       textStyle: AppStyle.textStyle(
-                                        color: Colors.white,
+                                        color: AppColor.white,
                                         fontSize: context.setSp(12),
                                         fontWeight: FontWeight.normal,
                                         fontFamily: 'Tajawal',

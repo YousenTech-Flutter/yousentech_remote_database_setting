@@ -6,6 +6,7 @@ import 'package:remote_database_setting/remote_database_setting/domain/remote_da
 import 'package:shared_widgets/config/app_colors.dart';
 import 'package:shared_widgets/config/app_enums.dart';
 import 'package:shared_widgets/config/app_styles.dart';
+import 'package:shared_widgets/config/theme_controller.dart';
 import 'package:shared_widgets/shared_widgets/app_button.dart';
 import 'package:shared_widgets/shared_widgets/app_dialog.dart';
 import 'package:shared_widgets/shared_widgets/app_loading.dart';
@@ -56,9 +57,9 @@ supportTicketDialog({
                             'support_ticket'.tr,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: SharedPr.isDarkMode!
-                                  ? Colors.white
-                                  : const Color(0xFF2E2E2E),
+                              color:Get.find<ThemeController>().isDarkMode.value
+                                  ? AppColor.white
+                                  : AppColor.black,
                               fontSize: context.setSp(20.03),
                               fontFamily: 'Tajawal',
                               fontWeight: FontWeight.w700,
@@ -74,7 +75,7 @@ supportTicketDialog({
                             'exception_details_message'.tr,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: SharedPr.isDarkMode!
+                              color:Get.find<ThemeController>().isDarkMode.value
                                   ? const Color(0xFFB1B3BC)
                                   : const Color(0xFF9F9FA5),
                               fontSize: context.setSp(14.42),
@@ -92,26 +93,26 @@ supportTicketDialog({
                             maxLines: 6,
                             enabled: message == null ? true : false,
                             isAddOrEdit: true,
-                            borderColor: !SharedPr.isDarkMode!
+                            borderColor: !Get.find<ThemeController>().isDarkMode.value
                                 ? const Color(
                                     0xFFC2C3CB,
                                   )
                                 : null,
-                            fillColor: !SharedPr.isDarkMode!
-                                ? Colors.white.withValues(
+                            fillColor: !Get.find<ThemeController>().isDarkMode.value
+                                ? AppColor.white.withValues(
                                     alpha: 0.43,
                                   )
                                 : const Color(
                                     0xFF2B2B2B,
                                   ),
-                            hintcolor: !SharedPr.isDarkMode!
+                            hintcolor: !Get.find<ThemeController>().isDarkMode.value
                                 ? const Color(
                                     0xFFC2C3CB,
                                   )
                                 : const Color(
                                     0xFFC2C3CB,
                                   ),
-                            color: !SharedPr.isDarkMode!
+                            color: !Get.find<ThemeController>().isDarkMode.value
                                 ? const Color(
                                     0xFFC2C3CB,
                                   )
