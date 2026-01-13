@@ -137,78 +137,83 @@ supportTicketDialog({
                           const Spacer(),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            spacing: context.setWidth(10),
                             children: [
-                              ButtonElevated(
-                                text: message != null
-                                    ? 'yes'.tr
-                                    : 'send_ticket'.tr,
-                                backgroundColor: AppColor.cyanTeal,
-                                height: context.setHeight(35),
-                                width: context.setWidth(180),
-                                borderRadius: context.setMinSize(5),
-                                textStyle: AppStyle.textStyle(
-                                  color: AppColor.white,
-                                  fontSize: context.setSp(12),
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Tajawal',
+                              Expanded(
+                                child: ButtonElevated(
+                                  text: message != null
+                                      ? 'yes'.tr
+                                      : 'send_ticket'.tr,
+                                  backgroundColor: AppColor.cyanTeal,
+                                  height: context.setHeight(35),
+                                  // width: context.setWidth(180),
+                                  borderRadius: context.setMinSize(5),
+                                  textStyle: AppStyle.textStyle(
+                                    color: AppColor.white,
+                                    fontSize: context.setSp(12),
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Tajawal',
+                                  ),
+                                  onPressed: onPressed ??
+                                      () async {
+                                        countErrors = 0;
+                                        if (_formKey.currentState!.validate()) {
+                                          await databaseSettingController
+                                              .sendTicket(
+                                            subscriptionId: SharedPr
+                                                .subscriptionDetailsObj!
+                                                .subscriptionId
+                                                .toString(),
+                                            message: exceptionDetails.text,
+                                          )
+                                              .then((value) {
+                                            if (value.status) {
+                                              SharedPr.setNotificationObj(
+                                                notificationHelperObj:
+                                                    NotificationHelper(
+                                                  sendTicket: true,
+                                                ),
+                                              );
+                                              Get.back();
+                                              appSnackBar(
+                                                message: 'success_send_ticket'.tr,
+                                                messageType: MessageTypes.success,
+                                              );
+                                              exceptionDetails.clear();
+                                            } else {
+                                              appSnackBar(
+                                                message: value.message!,
+                                              );
+                                              exceptionDetails.clear();
+                                            }
+                                          });
+                                        } else {
+                                          appSnackBar(
+                                            message: countErrors > 1
+                                                ? 'enter_required_info'.tr
+                                                : errorMessage!,
+                                          );
+                                        }
+                                      },
                                 ),
-                                onPressed: onPressed ??
-                                    () async {
-                                      countErrors = 0;
-                                      if (_formKey.currentState!.validate()) {
-                                        await databaseSettingController
-                                            .sendTicket(
-                                          subscriptionId: SharedPr
-                                              .subscriptionDetailsObj!
-                                              .subscriptionId
-                                              .toString(),
-                                          message: exceptionDetails.text,
-                                        )
-                                            .then((value) {
-                                          if (value.status) {
-                                            SharedPr.setNotificationObj(
-                                              notificationHelperObj:
-                                                  NotificationHelper(
-                                                sendTicket: true,
-                                              ),
-                                            );
-                                            Get.back();
-                                            appSnackBar(
-                                              message: 'success_send_ticket'.tr,
-                                              messageType: MessageTypes.success,
-                                            );
-                                            exceptionDetails.clear();
-                                          } else {
-                                            appSnackBar(
-                                              message: value.message!,
-                                            );
-                                            exceptionDetails.clear();
-                                          }
-                                        });
-                                      } else {
-                                        appSnackBar(
-                                          message: countErrors > 1
-                                              ? 'enter_required_info'.tr
-                                              : errorMessage!,
-                                        );
-                                      }
-                                    },
                               ),
-                              ButtonElevated(
-                                text: 'cancel'.tr,
-                                height: context.setHeight(35),
-                                width: context.setWidth(180),
-                                borderColor: AppColor.paleAqua,
-                                borderRadius: context.setMinSize(5),
-                                textStyle: AppStyle.textStyle(
-                                  color: AppColor.slateGray,
-                                  fontSize: context.setSp(12),
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Tajawal',
+                              Expanded(
+                                child: ButtonElevated(
+                                  text: 'cancel'.tr,
+                                  height: context.setHeight(35),
+                                  // width: context.setWidth(180),
+                                  borderColor: AppColor.paleAqua,
+                                  borderRadius: context.setMinSize(5),
+                                  textStyle: AppStyle.textStyle(
+                                    color: AppColor.slateGray,
+                                    fontSize: context.setSp(12),
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Tajawal',
+                                  ),
+                                  onPressed: () async {
+                                    Get.back();
+                                  },
                                 ),
-                                onPressed: () async {
-                                  Get.back();
-                                },
                               ),
                             ],
                           ),
