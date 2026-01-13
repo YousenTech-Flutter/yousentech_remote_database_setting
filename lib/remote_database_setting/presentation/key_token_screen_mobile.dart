@@ -608,61 +608,64 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                 ),
                                 const Spacer(),
                                 Row(
+                                  spacing: context.setWidth(10),
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    ButtonElevated(
-                                      text: 'change_device_id_butt'.tr,
-                                      height: context.setHeight(35),
-                                      width: context.setWidth(180),
-                                      borderRadius: context.setMinSize(9),
-                                      backgroundColor: AppColor.cyanTeal,
-                                      textStyle: AppStyle.textStyle(
-                                        color: Colors.white,
-                                        fontSize: context.setSp(12),
-                                        fontWeight: FontWeight.normal,
-                                        fontFamily: 'Tajawal',
+                                    Expanded(
+                                      child: ButtonElevated(
+                                        text: 'change_device_id_butt'.tr,
+                                        height: context.setHeight(35),
+                                        borderRadius: context.setMinSize(9),
+                                        backgroundColor: AppColor.cyanTeal,
+                                        textStyle: AppStyle.textStyle(
+                                          color: Colors.white,
+                                          fontSize: context.setSp(12),
+                                          fontWeight: FontWeight.normal,
+                                          fontFamily: 'Tajawal',
+                                        ),
+                                        onPressed: () async {
+                                          await tokenClassController
+                                              .updateDeviceIdAddress(
+                                            tokenValue: value,
+                                            tokenText: textEditingController.text,
+                                          )
+                                              .then((insideValue) async {
+                                            if (insideValue.status) {
+                                              Get.back();
+                                              appSnackBar(
+                                                message:
+                                                    'success_change_device_id'.tr,
+                                                messageType: MessageTypes.success,
+                                              );
+                                              Get.to(
+                                                () => const EmployeesListScreen(),
+                                              );
+                                            } else {
+                                              appSnackBar(
+                                                message: insideValue.message!,
+                                              );
+                                            }
+                                          });
+                                        },
                                       ),
-                                      onPressed: () async {
-                                        await tokenClassController
-                                            .updateDeviceIdAddress(
-                                          tokenValue: value,
-                                          tokenText: textEditingController.text,
-                                        )
-                                            .then((insideValue) async {
-                                          if (insideValue.status) {
-                                            Get.back();
-                                            appSnackBar(
-                                              message:
-                                                  'success_change_device_id'.tr,
-                                              messageType: MessageTypes.success,
-                                            );
-                                            Get.to(
-                                              () => const EmployeesListScreen(),
-                                            );
-                                          } else {
-                                            appSnackBar(
-                                              message: insideValue.message!,
-                                            );
-                                          }
-                                        });
-                                      },
                                     ),
-                                    ButtonElevated(
-                                      text: 'cancel'.tr,
-                                      height: context.setHeight(35),
-                                      width: context.setWidth(180),
-                                      borderRadius: context.setMinSize(9),
-                                      borderColor: AppColor.paleAqua,
-                                      textStyle: AppStyle.textStyle(
-                                        color: AppColor.slateGray,
-                                        fontSize: context.setSp(12),
-                                        fontWeight: FontWeight.normal,
-                                        fontFamily: 'Tajawal',
+                                    Expanded(
+                                      child: ButtonElevated(
+                                        text: 'cancel'.tr,
+                                        height: context.setHeight(35),
+                                        borderRadius: context.setMinSize(9),
+                                        borderColor: AppColor.paleAqua,
+                                        textStyle: AppStyle.textStyle(
+                                          color: AppColor.slateGray,
+                                          fontSize: context.setSp(12),
+                                          fontWeight: FontWeight.normal,
+                                          fontFamily: 'Tajawal',
+                                        ),
+                                        onPressed: () async {
+                                          Get.back();
+                                        },
                                       ),
-                                      onPressed: () async {
-                                        Get.back();
-                                      },
                                     ),
                                   ],
                                 ),
