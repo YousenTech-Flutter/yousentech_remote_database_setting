@@ -24,6 +24,7 @@ import 'package:shared_widgets/shared_widgets/custom_app_bar.dart';
 import 'package:shared_widgets/utils/responsive_helpers/size_helper_extenstions.dart';
 import 'package:shared_widgets/utils/responsive_helpers/size_provider.dart';
 import 'package:yousentech_authentication/authentication/presentation/views/employees_list.dart';
+import 'package:yousentech_authentication/authentication/presentation/views/employees_list_mobile.dart';
 import 'package:yousentech_pos_token/token_settings/domain/token_viewmodel.dart';
 
 class KeyAndTokenScreenMobile extends StatefulWidget {
@@ -99,370 +100,368 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                   children: [
                     Padding(
                       padding: EdgeInsets.all(context.setMinSize(16.92)),
-                      child: Center(
-                        child: SingleChildScrollView(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              // SvgPicture.asset(
-                              //   AppImages.logo,
-                              //   package: 'shared_widgets',
-                              //   fit: BoxFit.cover,
-                              //   width: context.setWidth(164.94),
-                              //   height: context.setHeight(60.5),
-                              // ),
-                              // SizedBox(height: context.setHeight(39.38)),
-                              Form(
-                                key: _formKey,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Center(
-                                      child: Text(
-                                        widget.isKeyScreen
-                                            ? 'remote_connection_information'.tr
-                                            : 'token_information'.tr,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          color: !Get.find<ThemeController>()
-                                                  .isDarkMode
-                                                  .value
-                                              ? const Color(
-                                                  0xFF2E2E2E,
-                                                )
-                                              : Colors.white,
-                                          fontSize: context.setSp(
-                                            20.03,
-                                          ),
-                                          fontFamily: 'SansBold',
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: context.setHeight(4.46),
-                                    ),
-                                    Center(
-                                      child: Text(
-                                        widget.isKeyScreen
-                                            ? 'remote_connection_information_sub'
-                                                .tr
-                                            : 'token_information_sub'.tr,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          color: Get.find<ThemeController>()
-                                                  .isDarkMode
-                                                  .value
-                                              ? const Color(0xFFB1B3BC)
-                                              : const Color(
-                                                  0xFF9F9FA5,
-                                                ),
-                                          fontSize: context.setSp(
-                                            14.42,
-                                          ),
-                                          fontFamily: 'SansRegular',
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: context.setHeight(67.44),
-                                    ),
-                                    Text(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            // SvgPicture.asset(
+                            //   AppImages.logo,
+                            //   package: 'shared_widgets',
+                            //   fit: BoxFit.cover,
+                            //   width: context.setWidth(164.94),
+                            //   height: context.setHeight(60.5),
+                            // ),
+                            SizedBox(height: context.setHeight(40)),
+                            Form(
+                              key: _formKey,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Center(
+                                    child: Text(
                                       widget.isKeyScreen
-                                          ? 'key_number'.tr
-                                          : 'token_number'.tr,
-                                      textAlign: TextAlign.right,
+                                          ? 'remote_connection_information'.tr
+                                          : 'token_information'.tr,
+                                      textAlign: TextAlign.center,
                                       style: TextStyle(
                                         color: !Get.find<ThemeController>()
                                                 .isDarkMode
                                                 .value
-                                            ? const Color(0xFF585858)
-                                            : const Color(0xFFB1B3BC),
-                                        fontSize: context.setSp(14.80),
-                                        fontFamily: 'SansMedium',
+                                            ? const Color(
+                                                0xFF2E2E2E,
+                                              )
+                                            : Colors.white,
+                                        fontSize: context.setSp(
+                                          20.03,
+                                        ),
+                                        fontFamily: 'SansBold',
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: context.setHeight(4.46),
+                                  ),
+                                  Center(
+                                    child: Text(
+                                      widget.isKeyScreen
+                                          ? 'remote_connection_information_sub'
+                                              .tr
+                                          : 'token_information_sub'.tr,
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: Get.find<ThemeController>()
+                                                .isDarkMode
+                                                .value
+                                            ? const Color(0xFFB1B3BC)
+                                            : const Color(
+                                                0xFF9F9FA5,
+                                              ),
+                                        fontSize: context.setSp(
+                                          14.42,
+                                        ),
+                                        fontFamily: 'SansRegular',
                                         fontWeight: FontWeight.w400,
                                       ),
                                     ),
-                                    ContainerTextField(
-                                      focusNode: fieldFocusNode,
-                                      controller: textEditingController,
-                                      labelText: widget.isKeyScreen
-                                          ? 'key_number'.tr
-                                          : 'token_number'.tr,
-                                      keyboardType: TextInputType.number,
-                                      inputFormatters: [
-                                        FilteringTextInputFormatter.allow(
-                                          RegExp(r'[0-9.]'),
-                                        ),
-                                      ],
-                                      width: context.screenWidth,
-                                      height: context.setHeight(
-                                        51.28,
-                                      ),
-                                      fontSize: context.setSp(
-                                        14,
-                                      ),
-                                      testFontSize: context.setSp(
-                                        19,
-                                      ),
-                                      contentPadding: EdgeInsets.fromLTRB(
-                                        context.setWidth(
-                                          14.82,
-                                        ),
-                                        context.setHeight(
-                                          15.22,
-                                        ),
-                                        context.setWidth(
-                                          14.82,
-                                        ),
-                                        context.setHeight(
-                                          15.22,
-                                        ),
-                                      ),
-                                      showLable: false,
-                                      iconcolor: AppColor.appColor,
-                                      borderColor: !Get.find<ThemeController>()
-                                              .isDarkMode
-                                              .value
-                                          ? const Color(
-                                              0xFFC2C3CB,
-                                            )
-                                          : null,
-                                      fillColor: !Get.find<ThemeController>()
-                                              .isDarkMode
-                                              .value
-                                          ? Colors.white.withValues(
-                                              alpha: 0.43,
-                                            )
-                                          : const Color(
-                                              0xFF2B2B2B,
-                                            ),
-                                      hintcolor: !Get.find<ThemeController>()
-                                              .isDarkMode
-                                              .value
-                                          ? const Color(
-                                              0xFFC2C3CB,
-                                            )
-                                          : const Color(
-                                              0xFFC2C3CB,
-                                            ),
+                                  ),
+                                  SizedBox(
+                                    height: context.setHeight(67.44),
+                                  ),
+                                  Text(
+                                    widget.isKeyScreen
+                                        ? 'key_number'.tr
+                                        : 'token_number'.tr,
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
                                       color: !Get.find<ThemeController>()
                                               .isDarkMode
                                               .value
-                                          ? const Color(
-                                              0xFFC2C3CB,
-                                            )
-                                          : const Color(
-                                              0xFFC2C3CB,
-                                            ),
-                                      isAddOrEdit: true,
-                                      borderRadius: context.setMinSize(8.01),
-                                      hintText: widget.isKeyScreen
-                                          ? 'key_number'.tr
-                                          : 'token_number'.tr,
-                                      prefixIcon: Padding(
-                                        padding: EdgeInsets.symmetric(
-                                          horizontal: context.setWidth(
-                                            14,
+                                          ? const Color(0xFF585858)
+                                          : const Color(0xFFB1B3BC),
+                                      fontSize: context.setSp(14.80),
+                                      fontFamily: 'SansMedium',
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  ContainerTextField(
+                                    focusNode: fieldFocusNode,
+                                    controller: textEditingController,
+                                    labelText: widget.isKeyScreen
+                                        ? 'key_number'.tr
+                                        : 'token_number'.tr,
+                                    keyboardType: TextInputType.number,
+                                    inputFormatters: [
+                                      FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9.]'),
+                                      ),
+                                    ],
+                                    width: context.screenWidth,
+                                    height: context.setHeight(
+                                      51.28,
+                                    ),
+                                    fontSize: context.setSp(
+                                      14,
+                                    ),
+                                    testFontSize: context.setSp(
+                                      19,
+                                    ),
+                                    contentPadding: EdgeInsets.fromLTRB(
+                                      context.setWidth(
+                                        14.82,
+                                      ),
+                                      context.setHeight(
+                                        15.22,
+                                      ),
+                                      context.setWidth(
+                                        14.82,
+                                      ),
+                                      context.setHeight(
+                                        15.22,
+                                      ),
+                                    ),
+                                    showLable: false,
+                                    iconcolor: AppColor.appColor,
+                                    borderColor: !Get.find<ThemeController>()
+                                            .isDarkMode
+                                            .value
+                                        ? const Color(
+                                            0xFFC2C3CB,
+                                          )
+                                        : null,
+                                    fillColor: !Get.find<ThemeController>()
+                                            .isDarkMode
+                                            .value
+                                        ? Colors.white.withValues(
+                                            alpha: 0.43,
+                                          )
+                                        : const Color(
+                                            0xFF2B2B2B,
                                           ),
-                                        ),
-                                        child: SvgPicture.asset(
-                                          AppImages.lockOn,
-                                          package: 'shared_widgets',
-                                          color: AppColor.appColor,
-                                          width: context.setWidth(21.63),
-                                          height: context.setHeight(21.63),
+                                    hintcolor: !Get.find<ThemeController>()
+                                            .isDarkMode
+                                            .value
+                                        ? const Color(
+                                            0xFFC2C3CB,
+                                          )
+                                        : const Color(
+                                            0xFFC2C3CB,
+                                          ),
+                                    color: !Get.find<ThemeController>()
+                                            .isDarkMode
+                                            .value
+                                        ? const Color(
+                                            0xFFC2C3CB,
+                                          )
+                                        : const Color(
+                                            0xFFC2C3CB,
+                                          ),
+                                    isAddOrEdit: true,
+                                    borderRadius: context.setMinSize(8.01),
+                                    hintText: widget.isKeyScreen
+                                        ? 'key_number'.tr
+                                        : 'token_number'.tr,
+                                    prefixIcon: Padding(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: context.setWidth(
+                                          14,
                                         ),
                                       ),
-                                      suffixIcon: IconButton(
-                                        onPressed: () {
-                                          setState(() {
-                                            flag = !flag;
-                                          });
-                                        },
-                                        icon: flag
-                                            ? SvgPicture.asset(
-                                                AppImages.eyeOpen,
-                                                package: 'shared_widgets',
-                                                width: context.setWidth(
-                                                  21.63,
-                                                ),
-                                                height: context.setHeight(
-                                                  21.63,
-                                                ),
-                                                color: AppColor.appColor,
-                                              )
-                                            : SvgPicture.asset(
-                                                AppImages.eyeClosed,
-                                                package: 'shared_widgets',
-                                                width: context.setWidth(
-                                                  21.63,
-                                                ),
-                                                height: context.setHeight(
-                                                  21.63,
-                                                ),
-                                                color: AppColor.appColor,
-                                              ),
+                                      child: SvgPicture.asset(
+                                        AppImages.lockOn,
+                                        package: 'shared_widgets',
+                                        color: AppColor.appColor,
+                                        width: context.setWidth(21.63),
+                                        height: context.setHeight(21.63),
                                       ),
-                                      obscureText: flag ? false : true,
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          errorMessage = widget.isKeyScreen
-                                              ? 'key_number_message'.tr
-                                              : 'required_message'.trParams({
-                                                  'field_name': 'token_number'.tr,
-                                                });
-                                          return "";
-                                        }
-                                        return null;
+                                    ),
+                                    suffixIcon: IconButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          flag = !flag;
+                                        });
                                       },
-                                    ),
-                                    SizedBox(
-                                      height: context.setHeight(183.5),
-                                    ),
-                                    Center(
-                                      child: Focus(
-                                          autofocus: true,
-                                          child: Row(
-                                            spacing: context.setWidth(
-                                              16,
+                                      icon: flag
+                                          ? SvgPicture.asset(
+                                              AppImages.eyeOpen,
+                                              package: 'shared_widgets',
+                                              width: context.setWidth(
+                                                21.63,
+                                              ),
+                                              height: context.setHeight(
+                                                21.63,
+                                              ),
+                                              color: AppColor.appColor,
+                                            )
+                                          : SvgPicture.asset(
+                                              AppImages.eyeClosed,
+                                              package: 'shared_widgets',
+                                              width: context.setWidth(
+                                                21.63,
+                                              ),
+                                              height: context.setHeight(
+                                                21.63,
+                                              ),
+                                              color: AppColor.appColor,
                                             ),
-                                            children: [
+                                    ),
+                                    obscureText: flag ? false : true,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        errorMessage = widget.isKeyScreen
+                                            ? 'key_number_message'.tr
+                                            : 'required_message'.trParams({
+                                                'field_name': 'token_number'.tr,
+                                              });
+                                        return "";
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                  SizedBox(
+                                    height: context.setHeight(183.5),
+                                  ),
+                                  Center(
+                                    child: Focus(
+                                        autofocus: true,
+                                        child: Row(
+                                          spacing: context.setWidth(
+                                            16,
+                                          ),
+                                          children: [
+                                            Expanded(
+                                              child: InkWell(
+                                                onTap: widget.isKeyScreen
+                                                    ? _onPressedConnect
+                                                    : _onPressedDisplayEmployees,
+                                                child: Container(
+                                                  width: context.screenWidth,
+                                                  height: context.setHeight(
+                                                    47.27,
+                                                  ),
+                                                  alignment: Alignment.center,
+                                                  decoration: ShapeDecoration(
+                                                    color: AppColor.appColor,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                        context.setMinSize(
+                                                          7.21,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    // shadows: const [
+                                                    //   BoxShadow(
+                                                    //     color: Color(
+                                                    //       0x4C16A6B7,
+                                                    //     ),
+                                                    //     blurRadius:
+                                                    //         24.04,
+                                                    //     offset:
+                                                    //         Offset(
+                                                    //           0,
+                                                    //           3.20,
+                                                    //         ),
+                                                    //     spreadRadius:
+                                                    //         0,
+                                                    //   ),
+                                                    // ],
+                                                  ),
+                                                  child: Text(
+                                                    widget.isKeyScreen
+                                                        ? 'connect'.tr
+                                                        : 'display_employees'
+                                                            .tr,
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                      fontSize: context.setSp(
+                                                        14.42,
+                                                      ),
+                                                      color: AppColor.white,
+                                                      fontFamily: 'SansBold',
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            if (widget
+                                                .changeConnectionInfo) ...[
                                               Expanded(
                                                 child: InkWell(
-                                                  onTap: widget.isKeyScreen
-                                                      ? _onPressedConnect
-                                                      : _onPressedDisplayEmployees,
+                                                  onTap: () {
+                                                    Get.back();
+                                                  },
                                                   child: Container(
                                                     width: context.screenWidth,
                                                     height: context.setHeight(
                                                       47.27,
                                                     ),
-                                                    alignment: Alignment.center,
                                                     decoration: ShapeDecoration(
-                                                      color: AppColor.appColor,
                                                       shape:
                                                           RoundedRectangleBorder(
+                                                        side: BorderSide(
+                                                          width: 1,
+                                                          color: Get.find<
+                                                                      ThemeController>()
+                                                                  .isDarkMode
+                                                                  .value
+                                                              ? Colors.white
+                                                                  .withValues(
+                                                                  alpha: 0.50,
+                                                                )
+                                                              : const Color(
+                                                                  0xFFC2C3CB,
+                                                                ),
+                                                        ),
                                                         borderRadius:
-                                                            BorderRadius.circular(
+                                                            BorderRadius
+                                                                .circular(
                                                           context.setMinSize(
-                                                            7.21,
+                                                            9,
                                                           ),
                                                         ),
                                                       ),
-                                                      // shadows: const [
-                                                      //   BoxShadow(
-                                                      //     color: Color(
-                                                      //       0x4C16A6B7,
-                                                      //     ),
-                                                      //     blurRadius:
-                                                      //         24.04,
-                                                      //     offset:
-                                                      //         Offset(
-                                                      //           0,
-                                                      //           3.20,
-                                                      //         ),
-                                                      //     spreadRadius:
-                                                      //         0,
-                                                      //   ),
-                                                      // ],
                                                     ),
-                                                    child: Text(
-                                                      widget.isKeyScreen
-                                                          ? 'connect'.tr
-                                                          : 'display_employees'
-                                                              .tr,
-                                                      textAlign: TextAlign.center,
-                                                      style: TextStyle(
-                                                        fontSize: context.setSp(
-                                                          14.42,
+                                                    child: Center(
+                                                      child: Text(
+                                                        "back".tr,
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                          fontSize:
+                                                              context.setSp(
+                                                            14.42,
+                                                          ),
+                                                          color: !Get.find<
+                                                                      ThemeController>()
+                                                                  .isDarkMode
+                                                                  .value
+                                                              ? const Color(
+                                                                  0xFFC2C3CB,
+                                                                )
+                                                              : const Color(
+                                                                  0xFFC2C3CB,
+                                                                ),
+                                                          fontFamily: 'Tajawal',
+                                                          fontWeight:
+                                                              FontWeight.w700,
                                                         ),
-                                                        color: AppColor.white,
-                                                        fontFamily: 'SansBold',
-                                                        fontWeight:
-                                                            FontWeight.w700,
                                                       ),
                                                     ),
                                                   ),
                                                 ),
                                               ),
-                                              if (widget
-                                                  .changeConnectionInfo) ...[
-                                                Expanded(
-                                                  child: InkWell(
-                                                    onTap: () {
-                                                      Get.back();
-                                                    },
-                                                    child: Container(
-                                                      width: context.screenWidth,
-                                                      height: context.setHeight(
-                                                        47.27,
-                                                      ),
-                                                      decoration: ShapeDecoration(
-                                                        shape:
-                                                            RoundedRectangleBorder(
-                                                          side: BorderSide(
-                                                            width: 1,
-                                                            color: Get.find<
-                                                                        ThemeController>()
-                                                                    .isDarkMode
-                                                                    .value
-                                                                ? Colors.white
-                                                                    .withValues(
-                                                                    alpha: 0.50,
-                                                                  )
-                                                                : const Color(
-                                                                    0xFFC2C3CB,
-                                                                  ),
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                            context.setMinSize(
-                                                              9,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      child: Center(
-                                                        child: Text(
-                                                          "back".tr,
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: TextStyle(
-                                                            fontSize:
-                                                                context.setSp(
-                                                              14.42,
-                                                            ),
-                                                            color: !Get.find<
-                                                                        ThemeController>()
-                                                                    .isDarkMode
-                                                                    .value
-                                                                ? const Color(
-                                                                    0xFFC2C3CB,
-                                                                  )
-                                                                : const Color(
-                                                                    0xFFC2C3CB,
-                                                                  ),
-                                                            fontFamily: 'Tajawal',
-                                                            fontWeight:
-                                                                FontWeight.w700,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
                                             ],
-                                          )),
-                                    ),
-                                  ],
-                                ),
+                                          ],
+                                        )),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -639,7 +638,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                                 messageType: MessageTypes.success,
                                               );
                                               Get.to(
-                                                () => const EmployeesListScreen(),
+                                                () => const EmployeesListScreenMobile(),
                                               );
                                             } else {
                                               appSnackBar(
@@ -698,7 +697,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
             messageType: MessageTypes.success,
             message: 'success_token'.tr,
           );
-          Get.to(() => const EmployeesListScreen());
+          Get.to(() => const EmployeesListScreenMobile());
         }
       } else {
         appSnackBar(message: value.message!);
