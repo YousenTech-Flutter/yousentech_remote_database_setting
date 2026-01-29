@@ -132,7 +132,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                               )
                                             : Colors.white,
                                         fontSize: context.setSp(
-                                          20.03,
+                                          16,
                                         ),
                                         fontFamily: 'SansBold',
                                         fontWeight: FontWeight.w700,
@@ -158,7 +158,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                                 0xFF9F9FA5,
                                               ),
                                         fontSize: context.setSp(
-                                          14.42,
+                                          14,
                                         ),
                                         fontFamily: 'SansRegular',
                                         fontWeight: FontWeight.w400,
@@ -179,7 +179,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                               .value
                                           ? const Color(0xFF585858)
                                           : const Color(0xFFB1B3BC),
-                                      fontSize: context.setSp(14.80),
+                                      fontSize: context.setSp(12),
                                       fontFamily: 'SansMedium',
                                       fontWeight: FontWeight.w400,
                                     ),
@@ -201,7 +201,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                       51.28,
                                     ),
                                     fontSize: context.setSp(
-                                      14,
+                                      12,
                                     ),
                                     testFontSize: context.setSp(
                                       19,
@@ -376,10 +376,10 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                       fontSize: context.setSp(
-                                                        14.42,
+                                                        12,
                                                       ),
                                                       color: AppColor.white,
-                                                      fontFamily: 'SansBold',
+                                                      fontFamily: "SansMedium",
                                                       fontWeight:
                                                           FontWeight.w700,
                                                     ),
@@ -433,7 +433,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                                         style: TextStyle(
                                                           fontSize:
                                                               context.setSp(
-                                                            14.42,
+                                                            12,
                                                           ),
                                                           color: !Get.find<
                                                                       ThemeController>()
@@ -445,7 +445,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                                               : const Color(
                                                                   0xFFC2C3CB,
                                                                 ),
-                                                          fontFamily: 'Tajawal',
+                                                          fontFamily: "SansMedium",
                                                           fontWeight:
                                                               FontWeight.w700,
                                                         ),
