@@ -739,6 +739,7 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
                                                 Get.to(
                                                   () =>
                                                       const EmployeesListScreen(),
+                                                      routeName: '/EmployeesListScreen'
                                                 );
                                               } else {
                                                 appSnackBar(
@@ -795,7 +796,9 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
             messageType: MessageTypes.success,
             message: 'success_token'.tr,
           );
-          Get.to(() => const EmployeesListScreen());
+          Get.to(() => const EmployeesListScreen(),
+          routeName: '/EmployeesListScreen'
+          );
         }
       } else {
         appSnackBar(message: value.message!);
