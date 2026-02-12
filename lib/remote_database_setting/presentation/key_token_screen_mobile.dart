@@ -201,11 +201,14 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                       51.28,
                                     ),
                                     fontSize: context.setSp(
-                                      12,
+                                      15,
                                     ),
-                                    testFontSize: context.setSp(
-                                      19,
-                                    ),
+                                    // fontSize: context.setSp(
+                                    //   12,
+                                    // ),
+                                    // testFontSize: context.setSp(
+                                    //   19,
+                                    // ),
                                     contentPadding: EdgeInsets.fromLTRB(
                                       context.setWidth(
                                         14.82,
@@ -445,7 +448,8 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                                               : const Color(
                                                                   0xFFC2C3CB,
                                                                 ),
-                                                          fontFamily: "SansMedium",
+                                                          fontFamily:
+                                                              "SansMedium",
                                                           fontWeight:
                                                               FontWeight.w700,
                                                         ),
@@ -627,20 +631,24 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                           await tokenClassController
                                               .updateDeviceIdAddress(
                                             tokenValue: value,
-                                            tokenText: textEditingController.text,
+                                            tokenText:
+                                                textEditingController.text,
                                           )
                                               .then((insideValue) async {
                                             if (insideValue.status) {
                                               Get.back();
                                               appSnackBar(
                                                 message:
-                                                    'success_change_device_id'.tr,
-                                                messageType: MessageTypes.success,
+                                                    'success_change_device_id'
+                                                        .tr,
+                                                messageType:
+                                                    MessageTypes.success,
                                               );
                                               Get.to(
-                                                () => const EmployeesListScreenMobile(),
-                                                routeName: '/EmployeesListScreenMobile'
-                                              );
+                                                  () =>
+                                                      const EmployeesListScreenMobile(),
+                                                  routeName:
+                                                      '/EmployeesListScreenMobile');
                                             } else {
                                               appSnackBar(
                                                 message: insideValue.message!,
@@ -699,8 +707,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
             message: 'success_token'.tr,
           );
           Get.to(() => const EmployeesListScreenMobile(),
-          routeName: '/EmployeesListScreenMobile'
-          );
+              routeName: '/EmployeesListScreenMobile');
         }
       } else {
         appSnackBar(message: value.message!);
