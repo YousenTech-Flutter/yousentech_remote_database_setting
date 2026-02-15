@@ -99,7 +99,8 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                 child: Stack(
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(context.setMinSize(16.92)),
+                      // padding: EdgeInsets.all(context.setMinSize(16.92)),
+                      padding: EdgeInsets.all(context.setMinSize(10)),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
