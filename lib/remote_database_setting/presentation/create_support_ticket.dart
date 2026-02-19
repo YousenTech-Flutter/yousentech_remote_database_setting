@@ -14,7 +14,6 @@ import 'package:shared_widgets/shared_widgets/app_snack_bar.dart';
 import 'package:shared_widgets/shared_widgets/app_text_field.dart';
 import 'package:shared_widgets/utils/responsive_helpers/device_utils.dart';
 import 'package:shared_widgets/utils/responsive_helpers/size_helper_extenstions.dart';
-import 'package:shared_widgets/utils/responsive_helpers/size_provider.dart';
 
 TextEditingController exceptionDetails = TextEditingController();
 
