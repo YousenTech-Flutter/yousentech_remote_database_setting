@@ -251,15 +251,11 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                         : const Color(
                                             0xFFC2C3CB,
                                           ),
-                                    color: !Get.find<ThemeController>()
+                                    color: Get.find<ThemeController>()
                                             .isDarkMode
                                             .value
-                                        ? const Color(
-                                            0xFFC2C3CB,
-                                          )
-                                        : const Color(
-                                            0xFFC2C3CB,
-                                          ),
+                                        ? AppColor.white
+                                        : AppColor.black,
                                     isAddOrEdit: true,
                                     borderRadius: context.setMinSize(8.01),
                                     hintText: widget.isKeyScreen
