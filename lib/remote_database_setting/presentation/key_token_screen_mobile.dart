@@ -133,9 +133,10 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(
-                                    height: context.setHeight(4.46),
-                                  ),
+                                  // SizedBox(
+                                  //   height: context.setHeight(4.46),
+                                  // ),
+                                  SizedBox(height: context.setHeight(16)),
                                   Center(
                                     child: Text(
                                       widget.isKeyScreen
