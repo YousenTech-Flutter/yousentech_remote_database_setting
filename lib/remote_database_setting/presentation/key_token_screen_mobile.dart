@@ -99,19 +99,11 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                 child: Stack(
                   children: [
                     Padding(
-                      // padding: EdgeInsets.all(context.setMinSize(16.92)),
                       padding: EdgeInsets.all(context.setMinSize(10)),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            // SvgPicture.asset(
-                            //   AppImages.logo,
-                            //   package: 'shared_widgets',
-                            //   fit: BoxFit.cover,
-                            //   width: context.setWidth(164.94),
-                            //   height: context.setHeight(60.5),
-                            // ),
                             SizedBox(height: context.setHeight(40)),
                             Form(
                               key: _formKey,
@@ -132,9 +124,10 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                                 0xFF2E2E2E,
                                               )
                                             : Colors.white,
-                                        fontSize: context.setSp(
-                                          16,
-                                        ),
+                                        // fontSize: context.setSp(
+                                        //   16,
+                                        // ),
+                                        fontSize: context.setSp(24),
                                         fontFamily: 'SansBold',
                                         fontWeight: FontWeight.w700,
                                       ),
@@ -158,9 +151,10 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                             : const Color(
                                                 0xFF9F9FA5,
                                               ),
-                                        fontSize: context.setSp(
-                                          14,
-                                        ),
+                                        // fontSize: context.setSp(
+                                        //   14,
+                                        // ),
+                                        fontSize: context.setSp(16),
                                         fontFamily: 'SansRegular',
                                         fontWeight: FontWeight.w400,
                                       ),
@@ -169,20 +163,25 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                   SizedBox(
                                     height: context.setHeight(67.44),
                                   ),
-                                  Text(
-                                    widget.isKeyScreen
-                                        ? 'key_number'.tr
-                                        : 'token_number'.tr,
-                                    textAlign: TextAlign.right,
-                                    style: TextStyle(
-                                      color: !Get.find<ThemeController>()
-                                              .isDarkMode
-                                              .value
-                                          ? const Color(0xFF585858)
-                                          : const Color(0xFFB1B3BC),
-                                      fontSize: context.setSp(12),
-                                      fontFamily: 'SansMedium',
-                                      fontWeight: FontWeight.w400,
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: context.setHeight(5)),
+                                    child: Text(
+                                      widget.isKeyScreen
+                                          ? 'key_number'.tr
+                                          : 'token_number'.tr,
+                                      textAlign: TextAlign.right,
+                                      style: TextStyle(
+                                        color: !Get.find<ThemeController>()
+                                                .isDarkMode
+                                                .value
+                                            ? const Color(0xFF585858)
+                                            : const Color(0xFFB1B3BC),
+                                        // fontSize: context.setSp(12),
+                                        fontSize: context.setSp(14),
+                                        fontFamily: 'SansMedium',
+                                        fontWeight: FontWeight.w400,
+                                      ),
                                     ),
                                   ),
                                   ContainerTextField(
@@ -201,29 +200,30 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                     height: context.setHeight(
                                       51.28,
                                     ),
-                                    fontSize: context.setSp(
-                                      15,
-                                    ),
+                                    fontSize: context.setSp(14),
+                                    testFontSize: context.setSp(20),
+                                    // fontSize: context.setSp(
+                                    //   15,
+                                    // ),
                                     // fontSize: context.setSp(
                                     //   12,
                                     // ),
-                                    // testFontSize: context.setSp(
-                                    //   19,
+                                    // contentPadding: EdgeInsets.fromLTRB(
+                                    //   context.setWidth(
+                                    //     14.82,
+                                    //   ),
+                                    //   context.setHeight(
+                                    //     15.22,
+                                    //   ),
+                                    //   context.setWidth(
+                                    //     14.82,
+                                    //   ),
+                                    //   context.setHeight(
+                                    //     15.22,
+                                    //   ),
                                     // ),
-                                    contentPadding: EdgeInsets.fromLTRB(
-                                      context.setWidth(
-                                        14.82,
-                                      ),
-                                      context.setHeight(
-                                        15.22,
-                                      ),
-                                      context.setWidth(
-                                        14.82,
-                                      ),
-                                      context.setHeight(
-                                        15.22,
-                                      ),
-                                    ),
+                                    contentPadding: const EdgeInsets.symmetric(
+                                        vertical: 18, horizontal: 16),
                                     showLable: false,
                                     iconcolor: AppColor.appColor,
                                     borderColor: !Get.find<ThemeController>()
@@ -379,9 +379,11 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                                             .tr,
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
-                                                      fontSize: context.setSp(
-                                                        12,
-                                                      ),
+                                                      // fontSize: context.setSp(
+                                                      //   12,
+                                                      // ),
+                                                      fontSize:
+                                                          context.setSp(17),
                                                       color: AppColor.white,
                                                       fontFamily: "SansMedium",
                                                       fontWeight:
@@ -435,10 +437,12 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                                         textAlign:
                                                             TextAlign.center,
                                                         style: TextStyle(
+                                                          // fontSize:
+                                                          //     context.setSp(
+                                                          //   12,
+                                                          // ),
                                                           fontSize:
-                                                              context.setSp(
-                                                            12,
-                                                          ),
+                                                              context.setSp(17),
                                                           color: !Get.find<
                                                                       ThemeController>()
                                                                   .isDarkMode
