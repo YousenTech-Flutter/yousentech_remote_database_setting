@@ -197,7 +197,8 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                         RegExp(r'[0-9.]'),
                                       ),
                                     ],
-                                    width: context.screenWidth,
+                                    // width: context.screenWidth,
+                                    width:double.infinity,
                                     height: context.setHeight(
                                       51.28,
                                     ),
