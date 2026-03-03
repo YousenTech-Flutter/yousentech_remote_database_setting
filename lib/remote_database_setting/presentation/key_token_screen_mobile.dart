@@ -21,6 +21,7 @@ import 'package:shared_widgets/shared_widgets/app_loading.dart';
 import 'package:shared_widgets/shared_widgets/app_snack_bar.dart';
 import 'package:shared_widgets/shared_widgets/app_text_field.dart';
 import 'package:shared_widgets/shared_widgets/custom_app_bar.dart';
+import 'package:shared_widgets/utils/responsive_helpers/device_utils.dart';
 import 'package:shared_widgets/utils/responsive_helpers/size_helper_extenstions.dart';
 import 'package:shared_widgets/utils/responsive_helpers/size_provider.dart';
 import 'package:yousentech_authentication/authentication/presentation/views/employees_list.dart';
@@ -494,6 +495,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
   }
 
   _onPressedConnect() {
+    FocusManager.instance.primaryFocus?.unfocus();
     if (_formKey.currentState!.validate()) {
       remoteDatabaseSettingController
           .checkDatabase(textEditingController.text)
@@ -548,6 +550,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
   }
 
   _onPressedDisplayEmployees() async {
+    FocusManager.instance.primaryFocus?.unfocus();
     if (_formKey.currentState!.validate()) {
       var value = await tokenClassController.checkToken(
         token: textEditingController.text,
@@ -587,7 +590,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                         ? Colors.white
                                         : const Color(0xFF2E2E2E),
                                     fontSize: context.setSp(20.03),
-                                    fontFamily: 'Tajawal',
+                                    fontFamily: DeviceUtils.isMobile(context) ?'SansMedium' : 'Tajawal',
                                     fontWeight: FontWeight.w700,
                                   ),
                                 ),
@@ -608,7 +611,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                         ? const Color(0xFFB1B3BC)
                                         : const Color(0xFF9F9FA5),
                                     fontSize: context.setSp(14.42),
-                                    fontFamily: 'Tajawal',
+                                    fontFamily: DeviceUtils.isMobile(context) ?'SansMedium' : 'Tajawal',
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
