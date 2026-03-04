@@ -12,6 +12,7 @@ import 'package:remote_database_setting/remote_database_setting/presentation/cre
 import 'package:shared_widgets/config/app_colors.dart';
 import 'package:shared_widgets/config/app_enums.dart';
 import 'package:shared_widgets/config/app_images.dart';
+import 'package:shared_widgets/config/app_sizes.dart';
 import 'package:shared_widgets/config/app_styles.dart';
 import 'package:shared_widgets/config/theme_controller.dart';
 import 'package:shared_widgets/shared_widgets/app_button.dart';
@@ -24,7 +25,6 @@ import 'package:shared_widgets/shared_widgets/custom_app_bar.dart';
 import 'package:shared_widgets/utils/responsive_helpers/device_utils.dart';
 import 'package:shared_widgets/utils/responsive_helpers/size_helper_extenstions.dart';
 import 'package:shared_widgets/utils/responsive_helpers/size_provider.dart';
-import 'package:yousentech_authentication/authentication/presentation/views/employees_list.dart';
 import 'package:yousentech_authentication/authentication/presentation/views/employees_list_mobile.dart';
 import 'package:yousentech_pos_token/token_settings/domain/token_viewmodel.dart';
 
@@ -100,12 +100,15 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                 child: Stack(
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(context.setMinSize(10)),
+                      padding: EdgeInsets.all(
+                          context.setMinSize(AppSizes.pagePadding)),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SizedBox(height: context.setHeight(40)),
+                            SizedBox(
+                                height:
+                                    context.setHeight(AppSizes.topPagePadding)),
                             Form(
                               key: _formKey,
                               child: Column(
@@ -125,18 +128,12 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                                 0xFF2E2E2E,
                                               )
                                             : Colors.white,
-                                        // fontSize: context.setSp(
-                                        //   16,
-                                        // ),
-                                        fontSize: context.setSp(24),
+                                        fontSize: context.setSp(AppSizes.title),
                                         fontFamily: 'SansBold',
                                         fontWeight: FontWeight.w700,
                                       ),
                                     ),
                                   ),
-                                  // SizedBox(
-                                  //   height: context.setHeight(4.46),
-                                  // ),
                                   SizedBox(height: context.setHeight(16)),
                                   Center(
                                     child: Text(
@@ -153,10 +150,8 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                             : const Color(
                                                 0xFF9F9FA5,
                                               ),
-                                        // fontSize: context.setSp(
-                                        //   14,
-                                        // ),
-                                        fontSize: context.setSp(16),
+                                        fontSize:
+                                            context.setSp(AppSizes.subTitle),
                                         fontFamily: 'SansRegular',
                                         fontWeight: FontWeight.w400,
                                       ),
@@ -180,7 +175,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                             ? const Color(0xFF585858)
                                             : const Color(0xFFB1B3BC),
                                         // fontSize: context.setSp(12),
-                                        fontSize: context.setSp(14),
+                                        fontSize: context.setSp(AppSizes.text),
                                         fontFamily: 'SansMedium',
                                         fontWeight: FontWeight.w400,
                                       ),
@@ -198,84 +193,27 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                         RegExp(r'[0-9.]'),
                                       ),
                                     ],
-                                    // width: context.screenWidth,
-                                    width:double.infinity,
-                                    height: context.setHeight(
-                                      51.28,
-                                    ),
-                                    fontSize: context.setSp(14),
-                                    testFontSize: context.setSp(20),
-                                    // fontSize: context.setSp(
-                                    //   15,
-                                    // ),
-                                    // fontSize: context.setSp(
-                                    //   12,
-                                    // ),
-                                    // contentPadding: EdgeInsets.fromLTRB(
-                                    //   context.setWidth(
-                                    //     14.82,
-                                    //   ),
-                                    //   context.setHeight(
-                                    //     15.22,
-                                    //   ),
-                                    //   context.setWidth(
-                                    //     14.82,
-                                    //   ),
-                                    //   context.setHeight(
-                                    //     15.22,
-                                    //   ),
-                                    // ),
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 18, horizontal: 16),
+                                    testFontSize:
+                                        context.setSp(AppSizes.textFieldNumber),
                                     showLable: false,
-                                    iconcolor: AppColor.appColor,
-                                    borderColor: !Get.find<ThemeController>()
-                                            .isDarkMode
-                                            .value
-                                        ? const Color(
-                                            0xFFC2C3CB,
-                                          )
-                                        : null,
-                                    fillColor: !Get.find<ThemeController>()
-                                            .isDarkMode
-                                            .value
-                                        ? Colors.white.withValues(
-                                            alpha: 0.43,
-                                          )
-                                        : const Color(
-                                            0xFF2B2B2B,
-                                          ),
-                                    hintcolor: !Get.find<ThemeController>()
-                                            .isDarkMode
-                                            .value
-                                        ? const Color(
-                                            0xFFC2C3CB,
-                                          )
-                                        : const Color(
-                                            0xFFC2C3CB,
-                                          ),
-                                    color: Get.find<ThemeController>()
-                                            .isDarkMode
-                                            .value
-                                        ? AppColor.white
-                                        : AppColor.black,
                                     isAddOrEdit: true,
-                                    borderRadius: context.setMinSize(8.01),
                                     hintText: widget.isKeyScreen
                                         ? 'key_number'.tr
                                         : 'token_number'.tr,
                                     prefixIcon: Padding(
                                       padding: EdgeInsets.symmetric(
                                         horizontal: context.setWidth(
-                                          14,
+                                          AppSizes.prefixIconPadding,
                                         ),
                                       ),
                                       child: SvgPicture.asset(
                                         AppImages.lockOn,
                                         package: 'shared_widgets',
                                         color: AppColor.appColor,
-                                        width: context.setWidth(21.63),
-                                        height: context.setHeight(21.63),
+                                        width: context
+                                            .setWidth(AppSizes.iconTextField),
+                                        height: context
+                                            .setHeight(AppSizes.iconTextField),
                                       ),
                                     ),
                                     suffixIcon: IconButton(
@@ -289,10 +227,10 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                               AppImages.eyeOpen,
                                               package: 'shared_widgets',
                                               width: context.setWidth(
-                                                21.63,
+                                                AppSizes.iconTextField,
                                               ),
                                               height: context.setHeight(
-                                                21.63,
+                                                AppSizes.iconTextField,
                                               ),
                                               color: AppColor.appColor,
                                             )
@@ -300,10 +238,10 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                               AppImages.eyeClosed,
                                               package: 'shared_widgets',
                                               width: context.setWidth(
-                                                21.63,
+                                                AppSizes.iconTextField,
                                               ),
                                               height: context.setHeight(
-                                                21.63,
+                                                AppSizes.iconTextField,
                                               ),
                                               color: AppColor.appColor,
                                             ),
@@ -328,8 +266,9 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                     child: Focus(
                                         autofocus: true,
                                         child: Row(
+                                          
                                           spacing: context.setWidth(
-                                            16,
+                                            AppSizes.spacingBetweenButtons,
                                           ),
                                           children: [
                                             Expanded(
@@ -340,7 +279,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                                 child: Container(
                                                   width: context.screenWidth,
                                                   height: context.setHeight(
-                                                    47.27,
+                                                    AppSizes.buttonHeight,
                                                   ),
                                                   alignment: Alignment.center,
                                                   decoration: ShapeDecoration(
@@ -350,26 +289,11 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                         context.setMinSize(
-                                                          7.21,
+                                                          AppSizes.textFieldButtonBorderRadius,
                                                         ),
                                                       ),
                                                     ),
-                                                    // shadows: const [
-                                                    //   BoxShadow(
-                                                    //     color: Color(
-                                                    //       0x4C16A6B7,
-                                                    //     ),
-                                                    //     blurRadius:
-                                                    //         24.04,
-                                                    //     offset:
-                                                    //         Offset(
-                                                    //           0,
-                                                    //           3.20,
-                                                    //         ),
-                                                    //     spreadRadius:
-                                                    //         0,
-                                                    //   ),
-                                                    // ],
+                                                    
                                                   ),
                                                   child: Text(
                                                     widget.isKeyScreen
@@ -378,11 +302,9 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                                             .tr,
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
-                                                      // fontSize: context.setSp(
-                                                      //   12,
-                                                      // ),
+                                                      
                                                       fontSize:
-                                                          context.setSp(17),
+                                                          context.setSp(AppSizes.buttonText),
                                                       color: AppColor.white,
                                                       fontFamily: "SansMedium",
                                                       fontWeight:
@@ -402,7 +324,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                                   child: Container(
                                                     width: context.screenWidth,
                                                     height: context.setHeight(
-                                                      47.27,
+                                                      AppSizes.buttonHeight,
                                                     ),
                                                     decoration: ShapeDecoration(
                                                       shape:
@@ -425,7 +347,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                                             BorderRadius
                                                                 .circular(
                                                           context.setMinSize(
-                                                            9,
+                                                            AppSizes.textFieldButtonBorderRadius,
                                                           ),
                                                         ),
                                                       ),
@@ -436,12 +358,9 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                                         textAlign:
                                                             TextAlign.center,
                                                         style: TextStyle(
-                                                          // fontSize:
-                                                          //     context.setSp(
-                                                          //   12,
-                                                          // ),
+                                                          
                                                           fontSize:
-                                                              context.setSp(17),
+                                                              context.setSp(AppSizes.buttonText),
                                                           color: !Get.find<
                                                                       ThemeController>()
                                                                   .isDarkMode
@@ -589,8 +508,10 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                             .value
                                         ? Colors.white
                                         : const Color(0xFF2E2E2E),
-                                    fontSize: context.setSp(20.03),
-                                    fontFamily: DeviceUtils.isMobile(context) ?'SansMedium' : 'Tajawal',
+                                    fontSize: context.setSp(AppSizes.title),
+                                    fontFamily: DeviceUtils.isMobile(context)
+                                        ? 'SansMedium'
+                                        : 'Tajawal',
                                     fontWeight: FontWeight.w700,
                                   ),
                                 ),
@@ -598,7 +519,7 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                 Icon(
                                   Icons.browser_updated,
                                   color: AppColor.amberLight,
-                                  size: context.setMinSize(40),
+                                  size: context.setMinSize(AppSizes.titleIcon),
                                 ),
                                 SizedBox(height: context.setHeight(15)),
                                 Text(
@@ -610,28 +531,31 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                             .value
                                         ? const Color(0xFFB1B3BC)
                                         : const Color(0xFF9F9FA5),
-                                    fontSize: context.setSp(14.42),
-                                    fontFamily: DeviceUtils.isMobile(context) ?'SansMedium' : 'Tajawal',
+                                    fontSize: context.setSp(AppSizes.subTitle),
+                                    fontFamily: DeviceUtils.isMobile(context)
+                                        ? 'SansMedium'
+                                        : 'Tajawal',
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
                                 const Spacer(),
                                 Row(
-                                  spacing: context.setWidth(10),
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  spacing: context.setWidth(AppSizes.spacingBetweenButtons),
                                   children: [
                                     Expanded(
                                       child: ButtonElevated(
                                         text: 'change_device_id_butt'.tr,
-                                        height: context.setHeight(35),
-                                        borderRadius: context.setMinSize(9),
+                                        height: context.setHeight(AppSizes.buttonHeight),
+                                        borderRadius: context.setMinSize(AppSizes.textFieldButtonBorderRadius),
                                         backgroundColor: AppColor.cyanTeal,
                                         textStyle: AppStyle.textStyle(
                                           color: Colors.white,
-                                          fontSize: context.setSp(12),
+                                          fontSize: context.setSp(AppSizes.buttonText),
                                           fontWeight: FontWeight.normal,
-                                          fontFamily: 'Tajawal',
+                                          fontFamily:
+                                              DeviceUtils.isMobile(context)
+                                                  ? 'SansMedium'
+                                                  : 'Tajawal',
                                         ),
                                         onPressed: () async {
                                           await tokenClassController
@@ -667,14 +591,17 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                     Expanded(
                                       child: ButtonElevated(
                                         text: 'cancel'.tr,
-                                        height: context.setHeight(35),
-                                        borderRadius: context.setMinSize(9),
+                                        height: context.setHeight(AppSizes.buttonHeight),
+                                        borderRadius: context.setMinSize(AppSizes.textFieldButtonBorderRadius),
                                         borderColor: AppColor.paleAqua,
                                         textStyle: AppStyle.textStyle(
                                           color: AppColor.slateGray,
-                                          fontSize: context.setSp(12),
+                                          fontSize: context.setSp(AppSizes.buttonText),
                                           fontWeight: FontWeight.normal,
-                                          fontFamily: 'Tajawal',
+                                          fontFamily:
+                                              DeviceUtils.isMobile(context)
+                                                  ? 'SansMedium'
+                                                  : 'Tajawal',
                                         ),
                                         onPressed: () async {
                                           Get.back();

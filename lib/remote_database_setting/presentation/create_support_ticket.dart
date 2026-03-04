@@ -5,6 +5,7 @@ import 'package:pos_shared_preferences/pos_shared_preferences.dart';
 import 'package:remote_database_setting/remote_database_setting/domain/remote_database_setting_viewmodel.dart';
 import 'package:shared_widgets/config/app_colors.dart';
 import 'package:shared_widgets/config/app_enums.dart';
+import 'package:shared_widgets/config/app_sizes.dart';
 import 'package:shared_widgets/config/app_styles.dart';
 import 'package:shared_widgets/config/theme_controller.dart';
 import 'package:shared_widgets/shared_widgets/app_button.dart';
@@ -40,7 +41,6 @@ supportTicketDialog({
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              // height: context.setHeight(280),
               width: context.setWidth(454.48),
               padding: EdgeInsets.all(context.setMinSize(20)),
               child: Obx(
@@ -52,7 +52,6 @@ supportTicketDialog({
                         key: _formKey,
                         child: Column(
                           spacing: context.setHeight(10),
-                          
                           children: [
                             Text(
                               'support_ticket'.tr,
@@ -61,7 +60,7 @@ supportTicketDialog({
                                 color:Get.find<ThemeController>().isDarkMode.value
                                     ? AppColor.white
                                     : AppColor.black,
-                                fontSize: context.setSp(DeviceUtils.isMobile(context) ? 16 : 20.03),
+                                fontSize: context.setSp(DeviceUtils.isMobile(context) ? AppSizes.title : 20.03),
                                 fontFamily: DeviceUtils.isMobile(context) ?'SansMedium' : 'Tajawal',
                                 fontWeight: FontWeight.w700,
                               ),
@@ -69,7 +68,7 @@ supportTicketDialog({
                             Icon(
                               icon ?? Icons.airplane_ticket_outlined,
                               color: AppColor.amberLight,
-                              size: context.setMinSize(40),
+                              size: context.setMinSize(AppSizes.iconTitle),
                             ),
                             Text(
                               'exception_details_message'.tr,
@@ -78,7 +77,7 @@ supportTicketDialog({
                                 color:Get.find<ThemeController>().isDarkMode.value
                                     ? const Color(0xFFB1B3BC)
                                     : const Color(0xFF9F9FA5),
-                                fontSize: context.setSp(DeviceUtils.isMobile(context) ? 14 : 14.42),
+                                fontSize: context.setSp(DeviceUtils.isMobile(context) ? AppSizes.subTitle : 14.42),
                                 fontFamily: DeviceUtils.isMobile(context) ?'SansMedium' : 'Tajawal',
                                 fontWeight: FontWeight.w400,
                               ),
@@ -86,35 +85,10 @@ supportTicketDialog({
                             ContainerTextField(
                               controller: exceptionDetails,
                               keyboardType: TextInputType.text,
-                              width: context.screenWidth,
-                              height: context.setHeight(51.28),
-                              fontSize: context.setSp(DeviceUtils.isMobile(context) ? 12 : 11.22),
+                              fontSize: context.setSp(DeviceUtils.isMobile(context) ? AppSizes.textField : 11.22),
                               maxLines: 6,
                               enabled: message == null ? true : false,
                               isAddOrEdit: true,
-                              borderColor: !Get.find<ThemeController>().isDarkMode.value
-                                  ? const Color(
-                                      0xFFC2C3CB,
-                                    )
-                                  : null,
-                              fillColor: !Get.find<ThemeController>().isDarkMode.value
-                                  ? AppColor.white.withValues(
-                                      alpha: 0.43,
-                                    )
-                                  : const Color(
-                                      0xFF2B2B2B,
-                                    ),
-                              hintcolor: !Get.find<ThemeController>().isDarkMode.value
-                                  ? const Color(
-                                      0xFFC2C3CB,
-                                    )
-                                  : const Color(
-                                      0xFFC2C3CB,
-                                    ),
-                              color: Get.find<ThemeController>().isDarkMode.value
-                                  ? AppColor.white
-                                  : AppColor.black,
-                              borderRadius: context.setMinSize(5),
                               textAlign: TextAlign.start,
                               hintText: 'exception_details'.tr,
                               labelText: 'exception_details'.tr,
@@ -132,8 +106,8 @@ supportTicketDialog({
                             // const Spacer(),
                             SizedBox(height: context.setHeight(10),),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              spacing: context.setWidth(10),
+                             
+                              spacing: context.setWidth(AppSizes.spacingBetweenButtons),
                               children: [
                                 Expanded(
                                   child: ButtonElevated(
@@ -141,12 +115,12 @@ supportTicketDialog({
                                         ? 'yes'.tr
                                         : 'send_ticket'.tr,
                                     backgroundColor: AppColor.cyanTeal,
-                                    height: context.setHeight(35),
-                                    // width: context.setWidth(180),
-                                    borderRadius: context.setMinSize(5),
+                                    height: context.setHeight(AppSizes.buttonHeight),
+                                    
+                                    borderRadius: context.setMinSize(AppSizes.textFieldButtonBorderRadius),
                                     textStyle: AppStyle.textStyle(
                                       color: AppColor.white,
-                                      fontSize: context.setSp(12),
+                                      fontSize: context.setSp(AppSizes.buttonText),
                                       fontWeight: FontWeight.bold,
                                       fontFamily: DeviceUtils.isMobile(context) ?'SansMedium' : 'Tajawal',
                                     ),
@@ -196,13 +170,13 @@ supportTicketDialog({
                                 Expanded(
                                   child: ButtonElevated(
                                     text: 'cancel'.tr,
-                                    height: context.setHeight(35),
-                                    // width: context.setWidth(180),
+                                    height: context.setHeight(AppSizes.buttonHeight),
+                                    
                                     borderColor: AppColor.paleAqua,
-                                    borderRadius: context.setMinSize(5),
+                                    borderRadius: context.setMinSize(AppSizes.textFieldButtonBorderRadius),
                                     textStyle: AppStyle.textStyle(
                                       color: AppColor.slateGray,
-                                      fontSize: context.setSp(12),
+                                      fontSize: context.setSp(AppSizes.buttonText),
                                       fontWeight: FontWeight.bold,
                                       fontFamily: DeviceUtils.isMobile(context) ?'SansMedium' : 'Tajawal',
                                     ),
