@@ -68,7 +68,7 @@ supportTicketDialog({
                             Icon(
                               icon ?? Icons.airplane_ticket_outlined,
                               color: AppColor.amberLight,
-                              size: context.setMinSize(AppSizes.iconTitle),
+                              size: context.setMinSize(AppSizes.titleIcon),
                             ),
                             Text(
                               'exception_details_message'.tr,

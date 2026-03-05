@@ -200,21 +200,14 @@ class _KeyAndTokenScreenMobileState extends State<KeyAndTokenScreenMobile> {
                                     hintText: widget.isKeyScreen
                                         ? 'key_number'.tr
                                         : 'token_number'.tr,
-                                    prefixIcon: Padding(
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: context.setWidth(
-                                          AppSizes.prefixIconPadding,
-                                        ),
-                                      ),
-                                      child: SvgPicture.asset(
-                                        AppImages.lockOn,
-                                        package: 'shared_widgets',
-                                        color: AppColor.appColor,
-                                        width: context
-                                            .setWidth(AppSizes.iconTextField),
-                                        height: context
-                                            .setHeight(AppSizes.iconTextField),
-                                      ),
+                                    prefixIcon: SvgPicture.asset(
+                                      AppImages.lockOn,
+                                      package: 'shared_widgets',
+                                      color: AppColor.appColor,
+                                      width: context
+                                          .setWidth(AppSizes.iconTextField),
+                                      height: context
+                                          .setHeight(AppSizes.iconTextField),
                                     ),
                                     suffixIcon: IconButton(
                                       onPressed: () {
