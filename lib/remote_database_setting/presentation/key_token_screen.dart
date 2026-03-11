@@ -40,11 +40,11 @@ class KeyAndTokenScreen extends StatefulWidget {
 }
 
 class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
-  TextEditingController textEditingController = TextEditingController();
-  DatabaseSettingController remoteDatabaseSettingController = Get.put(
+  final TextEditingController textEditingController = TextEditingController();
+  final DatabaseSettingController remoteDatabaseSettingController = Get.put(
     DatabaseSettingController.getInstance(),
   );
-  TokenController tokenClassController = Get.put(TokenController.getInstance());
+  final TokenController tokenClassController = Get.put(TokenController.getInstance());
   final _formKey = GlobalKey<FormState>();
   String? errorMessage;
   final fieldFocusNode = FocusNode();
@@ -62,6 +62,11 @@ class _KeyAndTokenScreenState extends State<KeyAndTokenScreen> {
   @override
   void dispose() {
     _buttonFocusNode.dispose();
+    fieldFocusNode.dispose();
+    textEditingController.dispose();
+    remoteDatabaseSettingController.dispose();
+    tokenClassController.dispose();
+    _formKey.currentState?.dispose();
     super.dispose();
   }
 
